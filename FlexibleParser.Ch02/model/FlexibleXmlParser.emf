@@ -1,0 +1,36 @@
+@namespace(
+	uri="http://flexible.xml/version1",
+	prefix="f")
+package flexml;
+
+enum Multiplicity {
+	ZeroOrOne;
+	One;
+	ZeroOrMany;
+	OneOrMany;
+}
+
+class NamedObject {
+	attr String name;
+	attr String desc;
+}
+
+class Attribute extends NamedObject {
+}
+
+class Element extends NamedObject {
+	attr String [*] aliasName;  // Aliases for this element
+	val Attribute[*] attribute;
+	val Child[*] child;
+	attr Boolean hasText; // Does this element contain text?
+}
+
+class Child {
+	attr Multiplicity multiplicity; // Multiplicity of this child type
+	ref Element child;
+}
+
+class Definition {
+	val Element root; // The root element of the XML
+	val Element[+] element; // The set of elements. There has to be at least one: the root
+}

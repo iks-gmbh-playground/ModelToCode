@@ -1,0 +1,51 @@
+/*
+  NamedObject is a common base class. So we define methods that we use regularly on this class
+*/
+operation NamedObject getSetterName() : String {
+	return "set"+self.name.firstToUpperCase();
+}
+
+operation NamedObject getGetterName() : String {
+	return "get"+self.name.firstToUpperCase();
+}
+
+operation NamedObject getInputParameterName() : String {
+	return "in"+self.name.firstToUpperCase();
+}
+
+operation NamedObject getInputAssignment() : String {
+	return self.name + " = " + self.getInputParameterName() + ";";
+}
+
+/*
+This method can be extended to eliminate whitespace characters
+*/
+operation Element getElementName() : String {
+	return self.name;
+}
+
+operation Element getMethodName() : String {
+	return self.getElementName().firstToUpperCase();
+}
+
+operation Element getParserClassName() : String {
+	return self.getElementName().firstToUpperCase()+"Parser";
+}
+
+operation Element getElementClassName() : String {
+	return self.getElementName().firstToUpperCase()+"Element";
+}
+
+operation Element hasChildren() : Boolean {
+	return self.child.isDefined and self.child.size() > 0;
+}
+
+/*
+*/
+operation Element hasText() : Boolean {
+	return self.hasText.isDefined() and self.hasText;
+}
+
+operation Child getChildElement() : Element {
+	return self.child;
+}
