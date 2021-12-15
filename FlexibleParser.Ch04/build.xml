@@ -17,7 +17,7 @@
 		
 		<!-- Copy last version and set timestamp -->
 		<!-- Sources -->
-		<copy todir="D:\temp\Workspaces\WS-XmlParserJava\XmlParserJava\src-gen\main\java\xml">		
+		<copy todir="..\XmlParser\src-gen\main\java\xml">		
 			<fileset dir="java" includes="**/*.java">
 			    <different targetdir="lastversion" ignoreFileTimes="true"/>
 			</fileset>
