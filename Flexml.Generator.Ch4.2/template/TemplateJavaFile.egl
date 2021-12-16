@@ -1,0 +1,33 @@
+[% import "../test-script/TcElement.eol"; %]
+[% import "../test-script/TcAttribute.eol"; %]
+[% import "../test-script/Testcase.eol"; %]
+[% import "../script/TestCaseUtils.eol"; %]
+package xml.test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
+import xml.elements.BodyElement;
+import xml.elements.FileElement;
+import xml.elements.HeaderElement;
+import xml.elements.TableElement;
+import xml.elements.TdElement;
+import xml.elements.ThElement;
+import xml.elements.TrElement;
+import xml.parser.XmlParser;
+
+public class [%= testcase.getClassname() %] {
+
+@Test
+public void test() {
+	File input = new File("xml/[%= testcase.name %].xml");
+	XmlParser parser = new XmlParser(input.getAbsolutePath());
+	FileElement fe = parser.parse();
+	Assertions.assertEquals(true, parser.isValid());
+[%= testcase.root.callTest("fe") %]
+}
+	
+[%= testcase.root.genTestmethodBody() %]    	
+}

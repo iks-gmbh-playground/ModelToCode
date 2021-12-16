@@ -3,6 +3,10 @@
 	prefix="f")
 package flexml;
 
+import "../model/FlexibleXmlTestcases.ecore";
+
+datatype ListOfPermutation : flexml.collections.ListOfPermutation;
+
 enum Multiplicity {
 	ZeroOrOne;
 	One;
@@ -16,6 +20,8 @@ class NamedObject {
 }
 
 class Attribute extends NamedObject {
+	// Operations for creating test cases
+ 	op testcases.TcAttribute instantiateToTestAttribute(int inParentId);	
 }
 
 @exeed(label="
@@ -31,12 +37,20 @@ class Element extends NamedObject {
 	val Attribute[*] attribute;
 	val Child[*] child;
 	attr Boolean hasText; // Does this element contain text?
+
+	// Operations for creating test cases
+	op testcases.ListOfSubtree createTestdataSubtrees();
+	op ListOfPermutation createChildPermutations(int inCurChildIndex);
+	op testcases.TcElement instantiateToTestElement();
 }
 
 @exeed(label="return '<'+self.child.name+'>' + ' (' +self.multiplicity + ')';", classIcon="link")
 class Child {
 	attr Multiplicity multiplicity; // Multiplicity of this child type
 	ref Element child;
+
+	// Operations for creating test cases
+	op ListOfPermutation getPermutations();	
 }
 
 @exeed(classIcon="model")

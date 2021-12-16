@@ -1,0 +1,17 @@
+import "../script/XmlParserUtils.eol";
+
+rule TESTCASE2XML
+	transform testcase: Testcase {
+	
+	template: "TemplateXmlFile.egl"
+	
+	target: "../generated/xml/" + testcase.name+ ".xml"
+	}
+
+rule TESTCASE2JAVA
+	transform testcase: Testcase {
+	
+	template: "TemplateJavaFile.egl"
+	
+	target: "../generated/current/src-gen/main/java/test/" + testcase.name.firstToUpperCase() + ".java"
+	}
