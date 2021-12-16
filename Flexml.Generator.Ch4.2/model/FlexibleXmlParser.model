@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<f:Definition xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:f="http://flexible.xml/version1" xmi:id="_LsNFcFgrEeyWHPZRiDHQRw">
+  <root xmi:id="_OTDy8FgrEeyWHPZRiDHQRw" name="file" desc="An xml file" hasText="false">
+    <attribute xmi:id="_4z1b0FgrEeyWHPZRiDHQRw" name="name" desc="The name of the file"/>
+    <child xmi:id="_nOlcYFgrEeyWHPZRiDHQRw" child="_SMwBUFgrEeyWHPZRiDHQRw"/>
+  </root>
+  <element xmi:id="_SMwBUFgrEeyWHPZRiDHQRw" name="table" desc="A table with header and body" hasText="false">
+    <child xmi:id="_p-5n4FgrEeyWHPZRiDHQRw" child="_WOn7UFgrEeyWHPZRiDHQRw"/>
+    <child xmi:id="_ruDRUFgrEeyWHPZRiDHQRw" child="_YwSm0FgrEeyWHPZRiDHQRw"/>
+  </element>
+  <element xmi:id="_WOn7UFgrEeyWHPZRiDHQRw" name="header" desc="The header of the table" hasText="false">
+    <child xmi:id="_tjFgUFgrEeyWHPZRiDHQRw" multiplicity="ZeroOrMany" child="_a9gsUFgrEeyWHPZRiDHQRw"/>
+  </element>
+  <element xmi:id="_YwSm0FgrEeyWHPZRiDHQRw" name="body" desc="The body of the table" hasText="false">
+    <child xmi:id="_vY9c0FgrEeyWHPZRiDHQRw" multiplicity="ZeroOrMany" child="_fCSJUFgrEeyWHPZRiDHQRw"/>
+  </element>
+  <element xmi:id="_a9gsUFgrEeyWHPZRiDHQRw" name="th" desc="A row in the header" hasText="false">
+    <aliasName>tr</aliasName>
+    <child xmi:id="_w9cHUFgrEeyWHPZRiDHQRw" multiplicity="ZeroOrMany" child="_h4Gf4FgrEeyWHPZRiDHQRw"/>
+  </element>
+  <element xmi:id="_fCSJUFgrEeyWHPZRiDHQRw" name="tr" desc="A row in the body of the table" hasText="false">
+    <child xmi:id="_yxKuwFgrEeyWHPZRiDHQRw" multiplicity="ZeroOrMany" child="_h4Gf4FgrEeyWHPZRiDHQRw"/>
+  </element>
+  <element xmi:id="_h4Gf4FgrEeyWHPZRiDHQRw" name="td" desc="A cell in a row" hasText="true">
+    <aliasName>ch</aliasName>
+    <attribute xmi:id="_0-GgYFgrEeyWHPZRiDHQRw" name="colspan" desc="The number of columns that this cell spans"/>
+  </element>
+</f:Definition>
