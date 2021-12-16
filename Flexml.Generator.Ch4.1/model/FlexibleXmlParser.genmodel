@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/Flexml.Generator.Ch4.1/src-gen/main/java"
+    modelPluginID="Flexml.Generator.Ch4.1" modelName="Flexml" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>FlexibleXmlParser.ecore</foreignModel>
+  <genPackages prefix="Flexml" disposableProviderFactory="true" ecorePackage="FlexibleXmlParser.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="FlexibleXmlParser.ecore#//Multiplicity">
+      <genEnumLiterals ecoreEnumLiteral="FlexibleXmlParser.ecore#//Multiplicity/ZeroOrOne"/>
+      <genEnumLiterals ecoreEnumLiteral="FlexibleXmlParser.ecore#//Multiplicity/One"/>
+      <genEnumLiterals ecoreEnumLiteral="FlexibleXmlParser.ecore#//Multiplicity/ZeroOrMany"/>
+      <genEnumLiterals ecoreEnumLiteral="FlexibleXmlParser.ecore#//Multiplicity/OneOrMany"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="FlexibleXmlParser.ecore#//ListOfPermutation"/>
+    <genClasses ecoreClass="FlexibleXmlParser.ecore#//NamedObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlParser.ecore#//NamedObject/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlParser.ecore#//NamedObject/desc"/>
+    </genClasses>
+    <genClasses ecoreClass="FlexibleXmlParser.ecore#//Attribute">
+      <genOperations ecoreOperation="FlexibleXmlParser.ecore#//Attribute/instantiateToTestAttribute">
+        <genParameters ecoreParameter="FlexibleXmlParser.ecore#//Attribute/instantiateToTestAttribute/inParentId"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="FlexibleXmlParser.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlParser.ecore#//Element/aliasName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Element/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Element/child"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlParser.ecore#//Element/hasText"/>
+      <genOperations ecoreOperation="FlexibleXmlParser.ecore#//Element/createTestdataSubtrees"/>
+      <genOperations ecoreOperation="FlexibleXmlParser.ecore#//Element/createChildPermutations">
+        <genParameters ecoreParameter="FlexibleXmlParser.ecore#//Element/createChildPermutations/inCurChildIndex"/>
+      </genOperations>
+      <genOperations ecoreOperation="FlexibleXmlParser.ecore#//Element/instantiateToTestElement"/>
+    </genClasses>
+    <genClasses ecoreClass="FlexibleXmlParser.ecore#//Child">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlParser.ecore#//Child/multiplicity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Child/child"/>
+      <genOperations ecoreOperation="FlexibleXmlParser.ecore#//Child/getPermutations"/>
+    </genClasses>
+    <genClasses ecoreClass="FlexibleXmlParser.ecore#//Definition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Definition/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Definition/element"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Testcases" ecorePackage="FlexibleXmlTestcases.ecore#/">
+    <genDataTypes ecoreDataType="FlexibleXmlTestcases.ecore#//ListOfSubtree"/>
+    <genDataTypes ecoreDataType="FlexibleXmlTestcases.ecore#//ListOfListOfSubtree"/>
+    <genClasses ecoreClass="FlexibleXmlTestcases.ecore#//TcAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//TcAttribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//TcAttribute/value"/>
+      <genOperations ecoreOperation="FlexibleXmlTestcases.ecore#//TcAttribute/deepCopy">
+        <genParameters ecoreParameter="FlexibleXmlTestcases.ecore#//TcAttribute/deepCopy/inParentId"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="FlexibleXmlTestcases.ecore#//TcElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//TcElement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//TcElement/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//TcElement/child"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//TcElement/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//TcElement/objectId"/>
+      <genOperations ecoreOperation="FlexibleXmlTestcases.ecore#//TcElement/attachAsChildren">
+        <genParameters ecoreParameter="FlexibleXmlTestcases.ecore#//TcElement/attachAsChildren/inListOfSubtrees"/>
+      </genOperations>
+      <genOperations ecoreOperation="FlexibleXmlTestcases.ecore#//TcElement/deepCopy"/>
+    </genClasses>
+    <genClasses ecoreClass="FlexibleXmlTestcases.ecore#//Testcase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//Testcase/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//Testcase/name"/>
+    </genClasses>
+    <genClasses ecoreClass="FlexibleXmlTestcases.ecore#//ListOfTestcase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//ListOfTestcase/testcase"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

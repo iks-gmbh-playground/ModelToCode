@@ -1,4 +1,7 @@
 <project default="main">
+	<property name="src.previous" value="output/previous/src-gen/main/java"/>
+	<property name="src.current" value="output/current/src-gen/main/java"/>
+	<property name="src.deploy" value="../Flexml.Parser.Ch3/src-gen/main/java"/>
 	<!-- Run tests -->
 	<target name="main">
 		<!-- Initialize timestamp -->
@@ -15,18 +18,18 @@
 			<model ref="XmlParserModel" />
 		</epsilon.egl>
 		
-		<!-- Copy last version and set timestamp -->
+		<!-- Copy changes and set timestamp -->
 		<!-- Sources -->
-		<copy todir="..\Flexml.Parser.Ch3\src-gen\main\java">		
-			<fileset dir="java" includes="**/*.java">
-			    <different targetdir="lastversion" ignoreFileTimes="true"/>
+		<copy todir="${src.deploy}">		
+			<fileset dir="${src.current}" includes="**/*.java">
+			    <different targetdir="${src.previous}" ignoreFileTimes="true"/>
 			</fileset>
 			<filterset>
 			    <filter token="GENERATIONTIME" value="${generationtime}"/>
 			</filterset>
 		</copy>
-		<copy todir="lastversion">		
-			<fileset dir="java" includes="**/*.java"/>
+		<copy todir="${src.previous}">
+			<fileset dir="${src.current}" includes="**/*.java"/>
 		</copy>
 	</target>
 </project>
