@@ -18,6 +18,14 @@ class NamedObject {
 class Attribute extends NamedObject {
 }
 
+@exeed(label="
+var str : String;
+str = '<' + self.name + '>';
+// concat aliases, if set
+if (not self.aliasName.isEmpty()) {
+ str = str + ' (' + self.aliasName.concat + ')';	
+}
+return  str;", classIcon="class")
 class Element extends NamedObject {
 	attr String [*] aliasName;  // Aliases for this element
 	val Attribute[*] attribute;
@@ -25,11 +33,13 @@ class Element extends NamedObject {
 	attr Boolean hasText; // Does this element contain text?
 }
 
+@exeed(label="return '<'+self.child.name+'>' + ' (' +self.multiplicity + ')';", classIcon="link")
 class Child {
 	attr Multiplicity multiplicity; // Multiplicity of this child type
 	ref Element child;
 }
 
+@exeed(classIcon="model")
 class Definition {
 	val Element root; // The root element of the XML
 	val Element[+] element; // The set of elements. There has to be at least one: the root
