@@ -20,17 +20,3 @@ operation TestCaseModel!Testcase toXml() : String {
 operation TestCaseModel!Testcase getClassname() : String {
 	return self.name.firstToUpperCase();
 }
-
-/*****
- Methods for debugging
-*/
-
-/*
- returns : A string representation for debugging
-*/
-operation TestCaseModel!Testcase toString() : String {
-	var result : String = "<Testcase>\n";
-	result = result + self.root.toString();
-	result = result + "</Testcase>\n";
-	return result;
-}

@@ -2,8 +2,8 @@ package flexml.gentest;
 
 import flexml.Definition;
 import flexml.Element;
-import flexml.persistence.EMFModelLoad;
-import flexml.persistence.EMFModelSave;
+import flexml.persistence.ParserModelLoad;
+import flexml.persistence.TestcaseModelSave;
 import testcases.ListOfTestcase;
 import testcases.TcElement;
 import testcases.Testcase;
@@ -11,14 +11,18 @@ import testcases.TestcasesFactory;
 import testcases.TestcasesPackage;
 import testcases.collections.ListOfSubtree;
 
+/**
+ * This application generates the test cases from the parser model
+ *
+ */
 public class GenTestCases {
 
 	public static void main(String[] args) {
         TestcasesPackage tcP = TestcasesPackage.eINSTANCE;
         TestcasesFactory tcFactory = TestcasesFactory.eINSTANCE;
 		
-		// Load domain model
-        EMFModelLoad loader = new EMFModelLoad();
+		// Load parser model
+        ParserModelLoad loader = new ParserModelLoad();
         Definition myDef = loader.load();
 		
 		// Generate all test cases
@@ -37,7 +41,8 @@ public class GenTestCases {
         }
 
         System.out.println(String.format("Count %d",cnt-1));
-		EMFModelSave.save(lot);
+        // Save test cases
+		TestcaseModelSave.save(lot);
 	}
 
 }

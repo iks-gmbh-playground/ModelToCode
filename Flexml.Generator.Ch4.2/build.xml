@@ -30,6 +30,7 @@
 		<!-- Test cases -->
 		<!-- Step one: Generate test cases -->
 		<!-- Das hier ist ein Beispiel, wie es funktionieren könnte... -->
+		<!--
 		<java dir="${exec.dir}"
 		      jar="${exec.dir}/dist/test.jar"
 		      fork="true"
@@ -41,6 +42,7 @@
 		    <pathelement path="${java.class.path}"/>
 		  </classpath>
 		</java>		
+		-->
 		
 		<!-- Step Two: Create test files and test code -->
 		<epsilon.emf.loadModel

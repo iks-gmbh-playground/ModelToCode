@@ -1,42 +1,4 @@
 /*****
- Methods for generating the test cases
-*/
-
-/*
- For each element in inListOfSubtree:
-	Create a deep copy
-	Attach the copy as a child
- inListOfSubtree : ListOfSubtree
- returns         : -
-*/
-operation TestCaseModel!TcElement attachListOfSubtree(inLosListOfSubtree : TestCaseModel!ListOfSubtree) {
-	for (curSubtree: TestCaseModel!TcElement in inLosListOfSubtree.list) {
-		self.child.add(curSubtree.deepCopy());
-	}
-}
-
-/*
- Create a deep copy
- returns : See above
-*/
-operation TestCaseModel!TcElement deepCopy() : TestCaseModel!TcElement {
-	var result : TestCaseModel!TcElement = new TestCaseModel!TcElement();
-	result.name = self.name;
-	result.objectId = objectId++;
-	if (self.text.isDefined()) {
-		result.text = "Here is some text for element " + result.name + " " + result.objectId;	
-	} 
-	for (curAttribute :  TestCaseModel!TcAttribute in self.attribute) {
-		result.attribute.add(curAttribute.deepCopy(result.objectId));
-	}
-	for (curChild : TestCaseModel!TcElement in self.child) {
-		result.child.add(curChild.deepCopy());
-		}
-
-	return result;
-}
-
-/*****
  Methods for generating the test data
 */
 
@@ -187,22 +149,5 @@ operation Map getChildIndex(inChildType: String) : Integer {
 		result = self.get(inChildType) + 1;
 	}
 	self.put(inChildType, result);
-	return result;
-}
-
-
-/*****
- Methods for debugging
-*/
-
-/*
- returns : A string representation for debugging
-*/
-operation TestCaseModel!TcElement toString() : String {
-	var result : String = "<TcElement name=\"" + self.name + "\">\n";
-	for (curChild : TestCaseModel!TcElement in self.child) {
-		result = result + curChild.toString();
-	}	
-	result = result + "</TcElement>\n";
 	return result;
 }
