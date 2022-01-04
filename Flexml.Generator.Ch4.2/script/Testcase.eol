@@ -1,0 +1,36 @@
+/*****
+ Methods for generating the XML test data
+*/
+
+
+/*
+ returns : An XML representation of the testcase
+*/
+operation TestCaseModel!Testcase toXml() : String {
+	return self.root.toXml();
+}
+
+/*****
+ Methods for generating the source code for the tests
+*/
+
+/*
+ returns: The name of the class for the test
+*/
+operation TestCaseModel!Testcase getClassname() : String {
+	return self.name.firstToUpperCase();
+}
+
+/*****
+ Methods for debugging
+*/
+
+/*
+ returns : A string representation for debugging
+*/
+operation TestCaseModel!Testcase toString() : String {
+	var result : String = "<Testcase>\n";
+	result = result + self.root.toString();
+	result = result + "</Testcase>\n";
+	return result;
+}

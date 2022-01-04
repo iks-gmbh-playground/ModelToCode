@@ -1,0 +1,208 @@
+/*****
+ Methods for generating the test cases
+*/
+
+/*
+ For each element in inListOfSubtree:
+	Create a deep copy
+	Attach the copy as a child
+ inListOfSubtree : ListOfSubtree
+ returns         : -
+*/
+operation TestCaseModel!TcElement attachListOfSubtree(inLosListOfSubtree : TestCaseModel!ListOfSubtree) {
+	for (curSubtree: TestCaseModel!TcElement in inLosListOfSubtree.list) {
+		self.child.add(curSubtree.deepCopy());
+	}
+}
+
+/*
+ Create a deep copy
+ returns : See above
+*/
+operation TestCaseModel!TcElement deepCopy() : TestCaseModel!TcElement {
+	var result : TestCaseModel!TcElement = new TestCaseModel!TcElement();
+	result.name = self.name;
+	result.objectId = objectId++;
+	if (self.text.isDefined()) {
+		result.text = "Here is some text for element " + result.name + " " + result.objectId;	
+	} 
+	for (curAttribute :  TestCaseModel!TcAttribute in self.attribute) {
+		result.attribute.add(curAttribute.deepCopy(result.objectId));
+	}
+	for (curChild : TestCaseModel!TcElement in self.child) {
+		result.child.add(curChild.deepCopy());
+		}
+
+	return result;
+}
+
+/*****
+ Methods for generating the test data
+*/
+
+/*
+ returns: An XML representation for use in test data
+*/
+operation TestCaseModel!TcElement toXml() : String {
+	var result : String = "<" + self.name;
+	for (curAttribute: TestCaseModel!TcAttribute in self.attribute) {
+		result = result + curAttribute.toXml();
+	}
+	result = result + ">\n";
+	result = result + self.text;
+	for (curChild : TestCaseModel!TcElement in self.child) {
+		result = result + curChild.toXml();
+	}	
+	result = result + "</" + self.name +">\n";
+	return result;
+
+}
+
+/*****
+ Methods for generating the source code for the tests
+*/
+
+/*
+ returns: The classname for this instance of TcElement 
+*/
+operation TestCaseModel!TcElement getElementClassName() : String {
+	return self.name.firstToUpperCase()+"Element";
+}
+
+
+/*
+ returns: The name of the test method for this instance
+*/
+operation TestCaseModel!TcElement getTestMethodName() : String {
+	return "testValidate".appendNumber(4, self.objectId);
+}
+
+
+/*
+ self         : An instance of TcElement in a testcase tree
+ inExpression : The parameter for the call
+ returns      : The call for the test method
+*/
+operation TestCaseModel!TcElement callTest(inExpression: String) : String {
+	return "\t" + self.getTestMethodName() + "(" + inExpression + ");\n"; 
+}
+
+/*
+
+*/
+operation TestCaseModel!TcElement genChildGetterCall (inIndex : Integer) : String {
+	return "get" + self.name.firstToUpperCase() + "().get(" + inIndex + ")";
+}
+
+/*
+ Creates the definition of the test method for an instance
+ Tests the attributes, the text and (recursively) all children
+ returns : 
+*/
+operation TestCaseModel!TcElement genTestmethodBody() : String {
+	var result: String = "private static void " + self.getTestMethodName() + "(" + self.getElementClassName() + " inChild) {\n";
+
+	result = result + self.genTestAllAttributes();
+	result = result + self.genTestAllChildren();
+	result = result + self.genTestTextContent();
+		
+	result = result + "}\n\n";
+
+	/*
+	Create tests for all children
+	*/
+	result = result + self.genTestmethodBodyForAllChildren();
+
+	return result;
+}
+
+/*
+ Generates the code that tests all attributes
+*/
+operation TestCaseModel!TcElement genTestAllAttributes() : String {
+	var result : String = new String();
+	
+	for (curAttr: TestCaseModel!TcAttribute in self.attribute) {
+		var expected : String = "\"" + curAttr.value + "\"";
+		var actual : String = "inChild." + curAttr.genGetterCall();
+		result = result + "\tAssertions.assertEquals(" + expected + ", " + actual + ");\n";
+	}
+	return result;
+}
+
+/*
+ Generates the code that calls the tests for all children
+*/
+operation TestCaseModel!TcElement genTestAllChildren() : String {
+	var result : String = new String();
+	/*
+	In this model an element can have several children of the same type
+	We use a map to keep count of the index 
+	*/	
+	var childIndexMap : Map = new Map();
+	
+	/*
+	Call the test on each child
+	*/
+	for (curChild: TestCaseModel!TcElement in self.child) {
+		var index : Integer = childIndexMap.getChildIndex(curChild.name);
+		var getter : String = "inChild." + curChild.genChildGetterCall(index);
+				
+		result = result + curChild.callTest(getter);
+	}
+	return result;
+}
+
+/*
+ Generates the code to test the text content
+*/
+operation TestCaseModel!TcElement genTestTextContent() : String {
+	var result : String = new String();
+
+	if (self.text.isDefined()) {
+		result = result + "\tAssertions.assertEquals(\"" + self.text + "\", inChild.getText());\n";
+	}
+	
+	return result;
+}
+
+/*
+ Generates the test method bodies for all children
+*/
+operation TestCaseModel!TcElement genTestmethodBodyForAllChildren() : String {
+	var result: String = new String();
+	for (curChild: TestCaseModel!TcElement in self.child) {
+		result = result + curChild.genTestmethodBody();
+	}
+	return result;
+}
+
+/*
+ We store the calls to our children in a map
+ We increment the count to get the correct list index
+*/
+operation Map getChildIndex(inChildType: String) : Integer {
+	var result : Integer = 0;
+	if (self.containsKey(inChildType)) {
+		result = self.get(inChildType) + 1;
+	}
+	self.put(inChildType, result);
+	return result;
+}
+
+
+/*****
+ Methods for debugging
+*/
+
+/*
+ returns : A string representation for debugging
+*/
+operation TestCaseModel!TcElement toString() : String {
+	var result : String = "<TcElement name=\"" + self.name + "\">\n";
+	for (curChild : TestCaseModel!TcElement in self.child) {
+		result = result + curChild.toString();
+	}	
+	result = result + "</TcElement>\n";
+	return result;
+}

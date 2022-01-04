@@ -5,7 +5,7 @@ rule TESTCASE2XML
 	
 	template: "TemplateXmlFile.egl"
 	
-	target: "../generated/xml/" + testcase.name+ ".xml"
+	target: "../generated/current/src-gen/test/resources/xml/" + testcase.name+ ".xml"
 	}
 
 rule TESTCASE2JAVA
@@ -13,5 +13,5 @@ rule TESTCASE2JAVA
 	
 	template: "TemplateJavaFile.egl"
 	
-	target: "../generated/current/src-gen/main/java/test/" + testcase.name.firstToUpperCase() + ".java"
+	target: "../generated/current/src-gen/test/java/" + testcase.name.firstToUpperCase() + ".java"
 	}

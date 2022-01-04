@@ -1,0 +1,40 @@
+/*****
+ Methods for generating the test cases
+*/
+
+/*
+ Perform a deep copy
+ inParentId : Integer
+ returns    : TcAttribute
+*/
+operation TestCaseModel!TcAttribute deepCopy(inParentId : Integer) : TestCaseModel!TcAttribute {
+	var result: TestCaseModel!TcAttribute = new TestCaseModel!TcAttribute();
+	result.name = self.name;
+	result.value = "Value for "+ self.name + " " + inParentId;
+	return result;
+}
+
+/*****
+ Code for generating XML test files
+*/
+
+/*
+ Creates the XML code for an attribute.
+ NOTE: For simplicity it DOES NOT perform escaping!
+
+ returns: See above
+*/
+operation TestCaseModel!TcAttribute toXml() : String {
+	return " " + self.name + "=\""+ self.value + "\"";
+}
+
+/*****
+ Code for generating test source
+*/
+
+/*
+ Creates the code to get the value of an attribute
+*/
+operation TestCaseModel!TcAttribute genGetterCall() : String {
+	return "get" + self.name.firstToUpperCase() + "()";
+}

@@ -1,5 +1,5 @@
-[% import "../test-script/TcElement.eol"; %]
-[% import "../test-script/TcAttribute.eol"; %]
-[% import "../test-script/Testcase.eol"; %]
+[% import "../script/TcElement.eol"; %]
+[% import "../script/TcAttribute.eol"; %]
+[% import "../script/Testcase.eol"; %]
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 [%= testcase.toXml() %]
