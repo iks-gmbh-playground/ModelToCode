@@ -6,13 +6,13 @@ package flexml.parser.app;
 import java.io.File;
 
 import flexml.elements.FileElement;
-import flexml.parser.XmlParser;
+import flexml.parser.FlexmlParser;
 
 /**
  * 
  *
  */
-public class XmlParserApp {
+public class FlexmlParserApp {
 
 	/**
 	 * @param args
@@ -23,7 +23,7 @@ public class XmlParserApp {
 		 for (final File fileEntry : folder.listFiles()) {
 		        if (fileEntry.isFile()) {
 		        	System.out.println(fileEntry.getName());
-		        	XmlParser parser = new XmlParser(fileEntry.getAbsolutePath());
+		        	FlexmlParser parser = new FlexmlParser(fileEntry.getAbsolutePath());
 		        	FileElement fe = parser.parse();
 		        	System.out.println(fe.toString());
 		        } else {

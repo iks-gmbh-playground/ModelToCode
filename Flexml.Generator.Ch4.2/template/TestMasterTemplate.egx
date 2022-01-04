@@ -1,9 +1,9 @@
-import "../script/XmlParserUtils.eol";
+import "../script/FlexmlUtils.eol";
 
 rule TESTCASE2XML
 	transform testcase: Testcase {
 	
-	template: "TemplateXmlFile.egl"
+	template: "TestXmlFileTemplate.egl"
 	
 	target: "../generated/current/src-gen/test/resources/xml/" + testcase.name+ ".xml"
 	}
@@ -11,7 +11,7 @@ rule TESTCASE2XML
 rule TESTCASE2JAVA
 	transform testcase: Testcase {
 	
-	template: "TemplateJavaFile.egl"
+	template: "TestJavaCodeTemplate.egl"
 	
 	target: "../generated/current/src-gen/test/java/" + testcase.name.firstToUpperCase() + ".java"
 	}

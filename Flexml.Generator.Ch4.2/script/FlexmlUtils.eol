@@ -40,8 +40,6 @@ operation Element hasChildren() : Boolean {
 	return self.child.isDefined and self.child.size() > 0;
 }
 
-/*
-*/
 operation Element hasText() : Boolean {
 	return self.hasText.isDefined() and self.hasText;
 }

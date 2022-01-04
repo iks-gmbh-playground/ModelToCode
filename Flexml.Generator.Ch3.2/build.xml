@@ -1,35 +1,49 @@
 <project default="main">
-	<property name="src.previous" value="output/previous/src-gen/main/java"/>
-	<property name="src.current" value="output/current/src-gen/main/java"/>
-	<property name="src.deploy" value="../Flexml.Parser.Ch3/src-gen/main/java"/>
-	<!-- Run tests -->
+	<property name="src" value="src"/>
+	<property name="src-gen.parser.previous" value="generated/previous/src-gen"/>
+	<property name="src-gen.parser.current" value="generated/current/src-gen"/>
+	
+	<property name="project.deploy" value="../Flexml.Parser.Ch3"/>
+	
+	<property name="src.deploy" value="${project.deploy}/src"/>
+	<property name="src-gen.deploy" value="${project.deploy}/src-gen"/>
+	
 	<target name="main">
-		<!-- Initialize timestamp -->
+		<!-- set timestamp -->
 		<tstamp>
 		    <format property="generationtime" pattern="dd.MM.yyyy HH:mm z"/>
 		</tstamp>
-		<!-- Generate sources -->
+		<!-- Use model to text to generate sources -->
 		<epsilon.emf.loadModel
 			name="XmlParserModel"
 			modelfile="model/FlexibleXmlParser.model"
 			metamodeluri="http://flexible.xml/version1"
 			read="true" store="false"/>
-		<epsilon.egl src="template/ParserMasterTemplate.egx">
+		<epsilon.egl src="template/FlexmlMasterTemplate.egx">
 			<model ref="XmlParserModel" />
 		</epsilon.egl>
-		
-		<!-- Copy changes and set timestamp -->
-		<!-- Sources -->
+
+		<!-- Scope: Sources -->
+		<!-- Copy to target project -->
 		<copy todir="${src.deploy}">		
-			<fileset dir="${src.current}" includes="**/*.java">
-			    <different targetdir="${src.previous}" ignoreFileTimes="true"/>
+			<fileset dir="${src}" includes="**/*.java"/>
+		</copy>
+		
+		<!-- Scope: Generated sources -->
+		<!-- If changed since last copy -->
+		<!-- Copy to target project and set timestamp -->
+		<copy todir="${src-gen.deploy}">		
+			<fileset dir="${src-gen.parser.current}" includes="**/*.java">
+			    <different targetdir="${src-gen.parser.previous}" ignoreFileTimes="true"/>
 			</fileset>
 			<filterset>
 			    <filter token="GENERATIONTIME" value="${generationtime}"/>
 			</filterset>
 		</copy>
-		<copy todir="${src.previous}">
-			<fileset dir="${src.current}" includes="**/*.java"/>
+		
+		<!-- Save current to previous version -->
+		<copy todir="${src-gen.parser.previous}">
+			<fileset dir="${src-gen.parser.current}" includes="**/*.java"/>
 		</copy>
 	</target>
 </project>

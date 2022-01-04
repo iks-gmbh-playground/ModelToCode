@@ -1,7 +1,6 @@
-[% import "../test-script/TcElement.eol"; %]
-[% import "../test-script/TcAttribute.eol"; %]
-[% import "../test-script/Testcase.eol"; %]
-[% import "../script/TestCaseUtils.eol"; %]
+[% import "../script/TcElement.eol"; %]
+[% import "../script/TcAttribute.eol"; %]
+[% import "../script/Testcase.eol"; %]
 package xml.test;
 
 import org.junit.jupiter.api.Assertions;

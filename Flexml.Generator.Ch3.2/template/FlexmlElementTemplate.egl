@@ -1,4 +1,4 @@
-[% import "../script/XmlParserUtils.eol"; %]
+[% import "../script/FlexmlUtils.eol"; %]
 /**
  * Generated from TemplateElement.egl at @GENERATIONTIME@
  * If changes are necessary, make them there
