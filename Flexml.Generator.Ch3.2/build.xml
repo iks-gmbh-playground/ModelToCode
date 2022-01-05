@@ -1,5 +1,4 @@
 <project default="main">
-	<property name="src" value="src"/>
 	<property name="src-gen.parser.previous" value="export/previous/src-gen"/>
 	<property name="src-gen.parser.current" value="export/current/src-gen"/>
 	
@@ -23,12 +22,6 @@
 			<model ref="XmlParserModel" />
 		</epsilon.egl>
 
-		<!-- Scope: Sources -->
-		<!-- Copy to target project -->
-		<copy todir="${src.deploy}">		
-			<fileset dir="${src}" includes="**/*.java"/>
-		</copy>
-		
 		<!-- Scope: Generated sources -->
 		<!-- If changed since last copy -->
 		<!-- Copy to target project and set timestamp -->
