@@ -1,0 +1,29 @@
+/*
+ Appends self as a String with inNumberOfDigits digits, adding leading zeros
+
+1.format("Hello", 3) ==> "Hello001"
+
+ self             : Integer
+ inString         : String
+ inNumberOfDigits : Integer
+ returns          : See description
+*/
+operation String appendNumber(inNumberOfDigits: Integer, inCount: Integer) : String {
+	var result: String = self;
+
+	if (inNumberOfDigits == 5 and inCount < 10000) {
+		result = result + "0";
+	}
+	if (inNumberOfDigits == 4 and inCount < 1000) {
+		result = result + "0";
+	}
+	if (inNumberOfDigits >= 3 and inCount < 100) {
+		result = result + "0";
+	}
+	if (inNumberOfDigits >= 2 and inCount < 10) {
+		result = result + "0";
+	}
+	result = result + inCount;
+	
+	return result;
+}

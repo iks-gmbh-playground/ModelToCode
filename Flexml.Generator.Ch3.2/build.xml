@@ -1,7 +1,7 @@
 <project default="main">
 	<property name="src" value="src"/>
-	<property name="src-gen.parser.previous" value="generated/previous/src-gen"/>
-	<property name="src-gen.parser.current" value="generated/current/src-gen"/>
+	<property name="src-gen.parser.previous" value="export/previous/src-gen"/>
+	<property name="src-gen.parser.current" value="export/current/src-gen"/>
 	
 	<property name="project.deploy" value="../Flexml.Parser.Ch3"/>
 	
@@ -13,7 +13,7 @@
 		<tstamp>
 		    <format property="generationtime" pattern="dd.MM.yyyy HH:mm z"/>
 		</tstamp>
-		<!-- Use model to text to generate sources -->
+		<!-- Use model-to-text to generate sources -->
 		<epsilon.emf.loadModel
 			name="XmlParserModel"
 			modelfile="model/FlexibleXmlParser.model"
