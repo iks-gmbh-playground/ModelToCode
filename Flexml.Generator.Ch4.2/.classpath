@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src-gen/main/java"/>
-	<classpathentry kind="src" path="src-gen/test/java"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="export/current/src-gen/test/java"/>
 	<classpathentry kind="src" path="export/current/src/main/java"/>

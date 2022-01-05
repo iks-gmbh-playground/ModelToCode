@@ -1,0 +1,38 @@
+@namespace(
+	uri="http://test.flexible.xml/version1",
+	prefix="t"
+)
+package testcases;
+
+datatype ListOfSubtree : testcases.collections.ListOfSubtree;
+datatype ListOfListOfSubtree : testcases.collections.ListOfListOfSubtree;
+
+// A named attribute and its value
+class TcAttribute {
+	attr String name;
+	attr String value;
+
+	// Operations for creating test cases
+	op TcAttribute deepCopy (int inParentId);
+}
+
+class TcElement  {
+	attr String name;
+	val TcAttribute[*] attribute;
+	val TcElement[*] child;
+	attr String text;
+	attr Integer objectId;
+
+	// Operations for creating test cases
+	op void attachAsChildren(ListOfSubtree inListOfSubtrees);
+	op TcElement deepCopy();
+}
+
+class Testcase {
+	val TcElement root;
+	attr String name;
+}
+
+class ListOfTestcase {
+	val Testcase[+] testcase;
+}
