@@ -4,4 +4,6 @@ Bundle-Name: Flexml.Generator.Ch4.2
 Bundle-SymbolicName: Flexml.Generator.Ch4.2; singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,
- org.eclipse.emf.ecore.xmi
+ org.eclipse.emf.ecore.xmi,
+ org.junit,
+ org.junit.jupiter.api

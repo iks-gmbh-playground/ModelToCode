@@ -5,7 +5,7 @@ rule ELEMENT2ELEMENT
 	
 	template: "FlexmlElementTemplate.egl"
 	
-	target: "../generated/current/src-gen/main/java/flexml/elements/" + element.getElementClassName()+ ".java"
+	target: "../export/current/src-gen/main/java/flexml/elements/" + element.getElementClassName()+ ".java"
 	}
 
 rule ELEMENT2PARSER
@@ -13,5 +13,5 @@ rule ELEMENT2PARSER
 	
 	template: "FlexmlParserTemplate.egl"
 	
-	target: "../generated/current/src-gen/main/java/flexml/parser/" + element.getParserClassName() + ".java"
+	target: "../export/current/src-gen/main/java/flexml/parser/" + element.getParserClassName() + ".java"
 	}

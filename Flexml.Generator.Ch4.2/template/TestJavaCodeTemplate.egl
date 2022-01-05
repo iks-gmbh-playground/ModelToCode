@@ -1,6 +1,7 @@
 [% import "../script/TcElement.eol"; %]
 [% import "../script/TcAttribute.eol"; %]
 [% import "../script/Testcase.eol"; %]
+[% import "../script/TestcaseUtils.eol"; %]
 package xml.test;
 
 import org.junit.jupiter.api.Assertions;
@@ -8,21 +9,21 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import xml.elements.BodyElement;
-import xml.elements.FileElement;
-import xml.elements.HeaderElement;
-import xml.elements.TableElement;
-import xml.elements.TdElement;
-import xml.elements.ThElement;
-import xml.elements.TrElement;
-import xml.parser.XmlParser;
+import flexml.elements.BodyElement;
+import flexml.elements.FileElement;
+import flexml.elements.HeaderElement;
+import flexml.elements.TableElement;
+import flexml.elements.TdElement;
+import flexml.elements.ThElement;
+import flexml.elements.TrElement;
+import flexml.parser.FlexmlParser;
 
 public class [%= testcase.getClassname() %] {
 
 @Test
 public void test() {
 	File input = new File("xml/[%= testcase.name %].xml");
-	XmlParser parser = new XmlParser(input.getAbsolutePath());
+	FlexmlParser parser = new FlexmlParser(input.getAbsolutePath());
 	FileElement fe = parser.parse();
 	Assertions.assertEquals(true, parser.isValid());
 [%= testcase.root.callTest("fe") %]

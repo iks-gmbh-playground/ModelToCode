@@ -42,7 +42,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Definition/element"/>
     </genClasses>
   </genPackages>
-  <genPackages prefix="Testcases" ecorePackage="FlexibleXmlTestcases.ecore#/">
+  <genPackages prefix="Testcases" basePackage="emf" ecorePackage="FlexibleXmlTestcases.ecore#/">
     <genDataTypes ecoreDataType="FlexibleXmlTestcases.ecore#//ListOfSubtree"/>
     <genDataTypes ecoreDataType="FlexibleXmlTestcases.ecore#//ListOfListOfSubtree"/>
     <genClasses ecoreClass="FlexibleXmlTestcases.ecore#//TcAttribute">

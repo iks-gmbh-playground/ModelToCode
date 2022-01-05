@@ -1,62 +1,48 @@
 <project default="main">
-	<property name="src-gen.parser.previous" value="generated/previous/src-gen/main/java"/>
-	<property name="src-gen.parser.current" value="generated/current/src-gen/main/java"/>
-	<property name="src-gen.model" value="src-gen/main/java"/>
-	
-	<property name="src" value="src/main/java"/>
+	<property name="src" value="src"/>
+	<property name="src-gen.parser.previous" value="export/previous/src-gen"/>
+	<property name="src-gen.parser.current" value="export/current/src-gen"/>
+	<property name="src.parser.current" value="export/current/src"/>
 	
 	<property name="project.deploy" value="../Flexml.Parser.Ch4.2"/>
 	
-	<property name="src.deploy" value="${project.deploy}/src/main/java"/>
-	<property name="src-gen.deploy" value="${project.deploy}/src-gen/main/java"/>
-	<property name="src-gen-test.deploy" value="${project.deploy}/src-gen/test/java"/>
-	<property name="test-data.deploy" value="${project.deploy}/src-gen/test/resources"/>
+	<property name="src.deploy" value="${project.deploy}/src"/>
+	<property name="src-gen.deploy" value="${project.deploy}/src-gen"/>
 
 	<target name="main">
 		<!-- Initialize timestamp -->
 		<tstamp>
 		    <format property="generationtime" pattern="dd.MM.yyyy HH:mm z"/>
 		</tstamp>
-		<!-- Generate sources -->
+		<!-- Use model-to-text to generate sources -->
 		<epsilon.emf.loadModel
 			name="XmlParserModel"
 			modelfile="model/FlexibleXmlParser.model"
 			metamodeluri="http://flexible.xml/version1"
 			read="true" store="false"/>
-		<epsilon.egl src="template/ParserMasterTemplate.egx">
+		<epsilon.egl src="template/FlexmlMasterTemplate.egx">
 			<model ref="XmlParserModel" />
 		</epsilon.egl>
 
-		<!-- Test cases -->
-		<!-- Step one: Generate test cases -->
-		<!-- Das hier ist ein Beispiel, wie es funktionieren könnte... -->
-		<!--
-		<java dir="${exec.dir}"
-		      jar="${exec.dir}/dist/test.jar"
-		      fork="true"
-		      failonerror="true"
-		      maxmemory="128m">
-		  <arg value="-h"/>
-		  <classpath>
-		    <pathelement location="dist/test.jar"/>
-		    <pathelement path="${java.class.path}"/>
-		  </classpath>
-		</java>		
-		-->
-		
-		<!-- Step Two: Create test files and test code -->
+		<!-- Use model-to-text to generate test files and test code -->
 		<epsilon.emf.loadModel
 			name="TestCaseModel"
 			modelfile="model/FlexibleXmlTestcasesJava.model"
 			metamodeluri="http://test.flexible.xml/version1"
 			read="true" store="false"/>
-		<!-- Step Two: Translate test cases into test data and test source -->
-		<epsilon.egl src="template/TestFileMasterTemplate.egx">
+		<epsilon.egl src="template/TestMasterTemplate.egx">
 			<model ref="TestCaseModel" />
 		</epsilon.egl>
-		
-		<!-- Copy changes and set timestamp -->
-		<!-- Sources generated from model -->
+
+		<!-- Scope: Sources -->
+		<!-- Copy to target project -->
+		<copy todir="${src.deploy}">
+			<fileset dir="${src.parser.current}" includes="**/*.java"/>
+		</copy>
+
+		<!-- Scope: Generated sources -->
+		<!-- If changed since last copy -->
+		<!-- Copy to target project and set timestamp -->
 		<copy todir="${src-gen.deploy}">		
 			<fileset dir="${src-gen.parser.current}" includes="**/*.java">
 			    <different targetdir="${src-gen.parser.previous}" ignoreFileTimes="true"/>
@@ -68,15 +54,11 @@
 		<copy todir="${src-gen.parser.previous}">
 			<fileset dir="${src-gen.parser.current}" includes="**/*.java"/>
 		</copy>
-		
-		<!-- Model sources generated from meta model -->
+
+		<!-- Scope: Test data -->
+		<!-- Copy to target project -->
 		<copy todir="${src-gen.deploy}">		
-			<fileset dir="${src-gen.model}" includes="**/*.java"/>
-		</copy>
-		
-		<!-- Manual sources  -->
-		<copy todir="${src.deploy}">		
-			<fileset dir="${src.manual}" includes="**/*.java"/>
+			<fileset dir="${src-gen.parser.current}" includes="**/*.xml"/>
 		</copy>
 		
 
