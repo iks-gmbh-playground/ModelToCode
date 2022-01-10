@@ -1,6 +1,7 @@
 <project default="main">
 	<property name="src-gen.parser.previous" value="export/previous/src-gen"/>
 	<property name="src-gen.parser.current" value="export/current/src-gen"/>
+	<property name="src.parser.current" value="export/current/src"/>
 	
 	<property name="project.deploy" value="../Flexml.Parser.Ch3"/>
 	
@@ -32,6 +33,12 @@
 			<filterset>
 			    <filter token="GENERATIONTIME" value="${generationtime}"/>
 			</filterset>
+		</copy>
+
+		<!-- Scope: sources -->
+		<!-- Copy to target project -->
+		<copy todir="${src.deploy}">		
+			<fileset dir="${src.parser.current}" includes="**/*.java"/>
 		</copy>
 		
 		<!-- Save current to previous version -->
