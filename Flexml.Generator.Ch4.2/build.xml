@@ -10,6 +10,8 @@
 	<property name="src-gen.deploy" value="${project.deploy}/src-gen"/>
 
 	<target name="main">
+	</target>
+	<target name="gen-src">
 		<!-- Initialize timestamp -->
 		<tstamp>
 		    <format property="generationtime" pattern="dd.MM.yyyy HH:mm z"/>
@@ -23,7 +25,9 @@
 		<epsilon.egl src="template/FlexmlMasterTemplate.egx">
 			<model ref="XmlParserModel" />
 		</epsilon.egl>
+		</target>
 
+		<target name="gen-test">
 		<!-- Use model-to-text to generate test files and test code -->
 		<epsilon.emf.loadModel
 			name="TestCaseModel"
@@ -60,7 +64,6 @@
 		<copy todir="${src-gen.deploy}">		
 			<fileset dir="${src-gen.parser.current}" includes="**/*.xml"/>
 		</copy>
-		
 
 	</target>
 </project>
