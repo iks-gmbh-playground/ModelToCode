@@ -206,7 +206,7 @@ public class FlexmlPackageImpl extends EPackageImpl implements FlexmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getElement_AliasName() {
+	public EAttribute getElement_AliasNames() {
 		return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -216,7 +216,7 @@ public class FlexmlPackageImpl extends EPackageImpl implements FlexmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getElement_Attribute() {
+	public EReference getElement_Attributes() {
 		return (EReference)elementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -226,7 +226,7 @@ public class FlexmlPackageImpl extends EPackageImpl implements FlexmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getElement_Child() {
+	public EReference getElement_Children() {
 		return (EReference)elementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -296,7 +296,7 @@ public class FlexmlPackageImpl extends EPackageImpl implements FlexmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getDefinition_Element() {
+	public EReference getDefinition_Elements() {
 		return (EReference)definitionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -356,9 +356,9 @@ public class FlexmlPackageImpl extends EPackageImpl implements FlexmlPackage {
 		attributeEClass = createEClass(ATTRIBUTE);
 
 		elementEClass = createEClass(ELEMENT);
-		createEAttribute(elementEClass, ELEMENT__ALIAS_NAME);
-		createEReference(elementEClass, ELEMENT__ATTRIBUTE);
-		createEReference(elementEClass, ELEMENT__CHILD);
+		createEAttribute(elementEClass, ELEMENT__ALIAS_NAMES);
+		createEReference(elementEClass, ELEMENT__ATTRIBUTES);
+		createEReference(elementEClass, ELEMENT__CHILDREN);
 		createEAttribute(elementEClass, ELEMENT__HAS_TEXT);
 
 		childEClass = createEClass(CHILD);
@@ -367,7 +367,7 @@ public class FlexmlPackageImpl extends EPackageImpl implements FlexmlPackage {
 
 		definitionEClass = createEClass(DEFINITION);
 		createEReference(definitionEClass, DEFINITION__ROOT);
-		createEReference(definitionEClass, DEFINITION__ELEMENT);
+		createEReference(definitionEClass, DEFINITION__ELEMENTS);
 
 		// Create enums
 		multiplicityEEnum = createEEnum(MULTIPLICITY);
@@ -421,9 +421,9 @@ public class FlexmlPackageImpl extends EPackageImpl implements FlexmlPackage {
 		addEParameter(op, ecorePackage.getEInt(), "inParentId", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getElement_AliasName(), ecorePackage.getEString(), "aliasName", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Child(), this.getChild(), null, "child", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_AliasNames(), ecorePackage.getEString(), "aliasNames", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_Children(), this.getChild(), null, "children", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_HasText(), ecorePackage.getEBooleanObject(), "hasText", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(elementEClass, theTestcasesPackage.getListOfSubtree(), "createTestdataSubtrees", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -441,7 +441,7 @@ public class FlexmlPackageImpl extends EPackageImpl implements FlexmlPackage {
 
 		initEClass(definitionEClass, Definition.class, "Definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDefinition_Root(), this.getElement(), null, "root", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDefinition_Element(), this.getElement(), null, "element", null, 1, -1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDefinition_Elements(), this.getElement(), null, "elements", null, 1, -1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(multiplicityEEnum, Multiplicity.class, "Multiplicity");

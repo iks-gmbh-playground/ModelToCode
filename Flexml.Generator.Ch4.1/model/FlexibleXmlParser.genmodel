@@ -22,9 +22,9 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="FlexibleXmlParser.ecore#//Element">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlParser.ecore#//Element/aliasName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Element/attribute"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Element/child"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlParser.ecore#//Element/aliasNames"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Element/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Element/children"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlParser.ecore#//Element/hasText"/>
       <genOperations ecoreOperation="FlexibleXmlParser.ecore#//Element/createTestdataSubtrees"/>
       <genOperations ecoreOperation="FlexibleXmlParser.ecore#//Element/createChildPermutations">
@@ -39,10 +39,10 @@
     </genClasses>
     <genClasses ecoreClass="FlexibleXmlParser.ecore#//Definition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Definition/root"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Definition/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlParser.ecore#//Definition/elements"/>
     </genClasses>
   </genPackages>
-  <genPackages prefix="Testcases" basePackage="emf" ecorePackage="FlexibleXmlTestcases.ecore#/">
+  <genPackages prefix="Testcases" ecorePackage="FlexibleXmlTestcases.ecore#/">
     <genDataTypes ecoreDataType="FlexibleXmlTestcases.ecore#//ListOfSubtree"/>
     <genDataTypes ecoreDataType="FlexibleXmlTestcases.ecore#//ListOfListOfSubtree"/>
     <genClasses ecoreClass="FlexibleXmlTestcases.ecore#//TcAttribute">

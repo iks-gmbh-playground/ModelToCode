@@ -2,10 +2,6 @@
  */
 package testcases.impl;
 
-import flexml.FlexmlPackage;
-
-import flexml.impl.FlexmlPackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -121,17 +117,11 @@ public class TestcasesPackageImpl extends EPackageImpl implements TestcasesPacka
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FlexmlPackage.eNS_URI);
-		FlexmlPackageImpl theFlexmlPackage = (FlexmlPackageImpl)(registeredPackage instanceof FlexmlPackageImpl ? registeredPackage : FlexmlPackage.eINSTANCE);
-
 		// Create package meta-data objects
 		theTestcasesPackage.createPackageContents();
-		theFlexmlPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTestcasesPackage.initializePackageContents();
-		theFlexmlPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTestcasesPackage.freeze();
@@ -197,7 +187,7 @@ public class TestcasesPackageImpl extends EPackageImpl implements TestcasesPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTcElement_Attribute() {
+	public EReference getTcElement_Attributes() {
 		return (EReference)tcElementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -207,7 +197,7 @@ public class TestcasesPackageImpl extends EPackageImpl implements TestcasesPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getTcElement_Child() {
+	public EReference getTcElement_Children() {
 		return (EReference)tcElementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -277,7 +267,7 @@ public class TestcasesPackageImpl extends EPackageImpl implements TestcasesPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getListOfTestcase_Testcase() {
+	public EReference getListOfTestcase_Testcases() {
 		return (EReference)listOfTestcaseEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -336,8 +326,8 @@ public class TestcasesPackageImpl extends EPackageImpl implements TestcasesPacka
 
 		tcElementEClass = createEClass(TC_ELEMENT);
 		createEAttribute(tcElementEClass, TC_ELEMENT__NAME);
-		createEReference(tcElementEClass, TC_ELEMENT__ATTRIBUTE);
-		createEReference(tcElementEClass, TC_ELEMENT__CHILD);
+		createEReference(tcElementEClass, TC_ELEMENT__ATTRIBUTES);
+		createEReference(tcElementEClass, TC_ELEMENT__CHILDREN);
 		createEAttribute(tcElementEClass, TC_ELEMENT__TEXT);
 		createEAttribute(tcElementEClass, TC_ELEMENT__OBJECT_ID);
 
@@ -346,7 +336,7 @@ public class TestcasesPackageImpl extends EPackageImpl implements TestcasesPacka
 		createEAttribute(testcaseEClass, TESTCASE__NAME);
 
 		listOfTestcaseEClass = createEClass(LIST_OF_TESTCASE);
-		createEReference(listOfTestcaseEClass, LIST_OF_TESTCASE__TESTCASE);
+		createEReference(listOfTestcaseEClass, LIST_OF_TESTCASE__TESTCASES);
 
 		// Create data types
 		listOfSubtreeEDataType = createEDataType(LIST_OF_SUBTREE);
@@ -392,8 +382,8 @@ public class TestcasesPackageImpl extends EPackageImpl implements TestcasesPacka
 
 		initEClass(tcElementEClass, TcElement.class, "TcElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTcElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, TcElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTcElement_Attribute(), this.getTcAttribute(), null, "attribute", null, 0, -1, TcElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTcElement_Child(), this.getTcElement(), null, "child", null, 0, -1, TcElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTcElement_Attributes(), this.getTcAttribute(), null, "attributes", null, 0, -1, TcElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTcElement_Children(), this.getTcElement(), null, "children", null, 0, -1, TcElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTcElement_Text(), ecorePackage.getEString(), "text", null, 0, 1, TcElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTcElement_ObjectId(), ecorePackage.getEIntegerObject(), "objectId", null, 0, 1, TcElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -407,7 +397,7 @@ public class TestcasesPackageImpl extends EPackageImpl implements TestcasesPacka
 		initEAttribute(getTestcase_Name(), ecorePackage.getEString(), "name", null, 0, 1, Testcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(listOfTestcaseEClass, ListOfTestcase.class, "ListOfTestcase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getListOfTestcase_Testcase(), this.getTestcase(), null, "testcase", null, 1, -1, ListOfTestcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getListOfTestcase_Testcases(), this.getTestcase(), null, "testcases", null, 1, -1, ListOfTestcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(listOfSubtreeEDataType, ListOfSubtree.class, "ListOfSubtree", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

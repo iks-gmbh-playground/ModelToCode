@@ -19,9 +19,9 @@ import testcases.collections.ListOfSubtree;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link flexml.Element#getAliasName <em>Alias Name</em>}</li>
- *   <li>{@link flexml.Element#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link flexml.Element#getChild <em>Child</em>}</li>
+ *   <li>{@link flexml.Element#getAliasNames <em>Alias Names</em>}</li>
+ *   <li>{@link flexml.Element#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link flexml.Element#getChildren <em>Children</em>}</li>
  *   <li>{@link flexml.Element#getHasText <em>Has Text</em>}</li>
  * </ul>
  *
@@ -31,40 +31,40 @@ import testcases.collections.ListOfSubtree;
  */
 public interface Element extends NamedObject {
 	/**
-	 * Returns the value of the '<em><b>Alias Name</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Alias Names</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Alias Name</em>' attribute list.
-	 * @see flexml.FlexmlPackage#getElement_AliasName()
+	 * @return the value of the '<em>Alias Names</em>' attribute list.
+	 * @see flexml.FlexmlPackage#getElement_AliasNames()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getAliasName();
+	EList<String> getAliasNames();
 
 	/**
-	 * Returns the value of the '<em><b>Attribute</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
 	 * The list contents are of type {@link flexml.Attribute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute</em>' containment reference list.
-	 * @see flexml.FlexmlPackage#getElement_Attribute()
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
+	 * @see flexml.FlexmlPackage#getElement_Attributes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Attribute> getAttribute();
+	EList<Attribute> getAttributes();
 
 	/**
-	 * Returns the value of the '<em><b>Child</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
 	 * The list contents are of type {@link flexml.Child}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child</em>' containment reference list.
-	 * @see flexml.FlexmlPackage#getElement_Child()
+	 * @return the value of the '<em>Children</em>' containment reference list.
+	 * @see flexml.FlexmlPackage#getElement_Children()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Child> getChild();
+	EList<Child> getChildren();
 
 	/**
 	 * Returns the value of the '<em><b>Has Text</b></em>' attribute.

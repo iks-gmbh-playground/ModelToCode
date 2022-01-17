@@ -33,9 +33,9 @@ if (not self.aliasName.isEmpty()) {
 }
 return  str;", classIcon="class")
 class Element extends NamedObject {
-	attr String [*] aliasName;  // Aliases for this element
-	val Attribute[*] attribute;
-	val Child[*] child;
+	attr String [*] aliasNames;  // Aliases for this element
+	val Attribute[*] attributes;
+	val Child[*] children;
 	attr Boolean hasText; // Does this element contain text?
 
 	// Operations for creating test cases
@@ -56,5 +56,5 @@ class Child {
 @exeed(classIcon="model")
 class Definition {
 	val Element root; // The root element of the XML
-	val Element[+] element; // The set of elements. There has to be at least one: the root
+	val Element[+] elements; // The set of elements. There has to be at least one: the root
 }

@@ -41,9 +41,9 @@ import testcases.collections.ListOfSubtree;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link flexml.impl.ElementImpl#getAliasName <em>Alias Name</em>}</li>
- *   <li>{@link flexml.impl.ElementImpl#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link flexml.impl.ElementImpl#getChild <em>Child</em>}</li>
+ *   <li>{@link flexml.impl.ElementImpl#getAliasNames <em>Alias Names</em>}</li>
+ *   <li>{@link flexml.impl.ElementImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link flexml.impl.ElementImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link flexml.impl.ElementImpl#getHasText <em>Has Text</em>}</li>
  * </ul>
  *
@@ -51,34 +51,34 @@ import testcases.collections.ListOfSubtree;
  */
 public class ElementImpl extends NamedObjectImpl implements Element {
 	/**
-	 * The cached value of the '{@link #getAliasName() <em>Alias Name</em>}' attribute list.
+	 * The cached value of the '{@link #getAliasNames() <em>Alias Names</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAliasName()
+	 * @see #getAliasNames()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> aliasName;
+	protected EList<String> aliasNames;
 
 	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
+	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAttribute()
+	 * @see #getAttributes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Attribute> attribute;
+	protected EList<Attribute> attributes;
 
 	/**
-	 * The cached value of the '{@link #getChild() <em>Child</em>}' containment reference list.
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChild()
+	 * @see #getChildren()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Child> child;
+	protected EList<Child> children;
 
 	/**
 	 * The default value of the '{@link #getHasText() <em>Has Text</em>}' attribute.
@@ -125,11 +125,11 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	 * @generated
 	 */
 	@Override
-	public EList<String> getAliasName() {
-		if (aliasName == null) {
-			aliasName = new EDataTypeUniqueEList<String>(String.class, this, FlexmlPackage.ELEMENT__ALIAS_NAME);
+	public EList<String> getAliasNames() {
+		if (aliasNames == null) {
+			aliasNames = new EDataTypeUniqueEList<String>(String.class, this, FlexmlPackage.ELEMENT__ALIAS_NAMES);
 		}
-		return aliasName;
+		return aliasNames;
 	}
 
 	/**
@@ -138,11 +138,11 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	 * @generated
 	 */
 	@Override
-	public EList<Attribute> getAttribute() {
-		if (attribute == null) {
-			attribute = new EObjectContainmentEList<Attribute>(Attribute.class, this, FlexmlPackage.ELEMENT__ATTRIBUTE);
+	public EList<Attribute> getAttributes() {
+		if (attributes == null) {
+			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, FlexmlPackage.ELEMENT__ATTRIBUTES);
 		}
-		return attribute;
+		return attributes;
 	}
 
 	/**
@@ -151,11 +151,11 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	 * @generated
 	 */
 	@Override
-	public EList<Child> getChild() {
-		if (child == null) {
-			child = new EObjectContainmentEList<Child>(Child.class, this, FlexmlPackage.ELEMENT__CHILD);
+	public EList<Child> getChildren() {
+		if (children == null) {
+			children = new EObjectContainmentEList<Child>(Child.class, this, FlexmlPackage.ELEMENT__CHILDREN);
 		}
-		return child;
+		return children;
 	}
 
 	/**
@@ -227,17 +227,17 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	@Override
 	public ListOfPermutation createChildPermutations(int inCurChildIndex) {
 		// If we have no more children, return an empty list
-		if (inCurChildIndex >= getChild().size()) {
+		if (inCurChildIndex >= getChildren().size()) {
 			return new ListOfPermutation();
 		}
 
-		Child curChild = getChild().get(inCurChildIndex);
+		Child curChild = getChildren().get(inCurChildIndex);
 		ListOfPermutation lopChildPermutations = curChild.getPermutations(); 
 
 		/*
 		If there are no more children
 		*/
-		if (inCurChildIndex >= getChild().size() - 1) {
+		if (inCurChildIndex >= getChildren().size() - 1) {
 			return lopChildPermutations;
 			}
 
@@ -273,8 +273,8 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 		if ((null != getHasText()) && getHasText()) {
 			result.setText(String.format("Here is some text for element %s %d", result.getName(), result.getObjectId()));
 		}
-		for (Attribute curAttribute: getAttribute()) {
-			result.getAttribute().add(curAttribute.instantiateToTestAttribute(result.getObjectId()));
+		for (Attribute curAttribute: getAttributes()) {
+			result.getAttributes().add(curAttribute.instantiateToTestAttribute(result.getObjectId()));
 		}
 		return result;
 	}
@@ -287,10 +287,10 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FlexmlPackage.ELEMENT__ATTRIBUTE:
-				return ((InternalEList<?>)getAttribute()).basicRemove(otherEnd, msgs);
-			case FlexmlPackage.ELEMENT__CHILD:
-				return ((InternalEList<?>)getChild()).basicRemove(otherEnd, msgs);
+			case FlexmlPackage.ELEMENT__ATTRIBUTES:
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+			case FlexmlPackage.ELEMENT__CHILDREN:
+				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -303,12 +303,12 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FlexmlPackage.ELEMENT__ALIAS_NAME:
-				return getAliasName();
-			case FlexmlPackage.ELEMENT__ATTRIBUTE:
-				return getAttribute();
-			case FlexmlPackage.ELEMENT__CHILD:
-				return getChild();
+			case FlexmlPackage.ELEMENT__ALIAS_NAMES:
+				return getAliasNames();
+			case FlexmlPackage.ELEMENT__ATTRIBUTES:
+				return getAttributes();
+			case FlexmlPackage.ELEMENT__CHILDREN:
+				return getChildren();
 			case FlexmlPackage.ELEMENT__HAS_TEXT:
 				return getHasText();
 		}
@@ -324,17 +324,17 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FlexmlPackage.ELEMENT__ALIAS_NAME:
-				getAliasName().clear();
-				getAliasName().addAll((Collection<? extends String>)newValue);
+			case FlexmlPackage.ELEMENT__ALIAS_NAMES:
+				getAliasNames().clear();
+				getAliasNames().addAll((Collection<? extends String>)newValue);
 				return;
-			case FlexmlPackage.ELEMENT__ATTRIBUTE:
-				getAttribute().clear();
-				getAttribute().addAll((Collection<? extends Attribute>)newValue);
+			case FlexmlPackage.ELEMENT__ATTRIBUTES:
+				getAttributes().clear();
+				getAttributes().addAll((Collection<? extends Attribute>)newValue);
 				return;
-			case FlexmlPackage.ELEMENT__CHILD:
-				getChild().clear();
-				getChild().addAll((Collection<? extends Child>)newValue);
+			case FlexmlPackage.ELEMENT__CHILDREN:
+				getChildren().clear();
+				getChildren().addAll((Collection<? extends Child>)newValue);
 				return;
 			case FlexmlPackage.ELEMENT__HAS_TEXT:
 				setHasText((Boolean)newValue);
@@ -351,14 +351,14 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FlexmlPackage.ELEMENT__ALIAS_NAME:
-				getAliasName().clear();
+			case FlexmlPackage.ELEMENT__ALIAS_NAMES:
+				getAliasNames().clear();
 				return;
-			case FlexmlPackage.ELEMENT__ATTRIBUTE:
-				getAttribute().clear();
+			case FlexmlPackage.ELEMENT__ATTRIBUTES:
+				getAttributes().clear();
 				return;
-			case FlexmlPackage.ELEMENT__CHILD:
-				getChild().clear();
+			case FlexmlPackage.ELEMENT__CHILDREN:
+				getChildren().clear();
 				return;
 			case FlexmlPackage.ELEMENT__HAS_TEXT:
 				setHasText(HAS_TEXT_EDEFAULT);
@@ -375,12 +375,12 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FlexmlPackage.ELEMENT__ALIAS_NAME:
-				return aliasName != null && !aliasName.isEmpty();
-			case FlexmlPackage.ELEMENT__ATTRIBUTE:
-				return attribute != null && !attribute.isEmpty();
-			case FlexmlPackage.ELEMENT__CHILD:
-				return child != null && !child.isEmpty();
+			case FlexmlPackage.ELEMENT__ALIAS_NAMES:
+				return aliasNames != null && !aliasNames.isEmpty();
+			case FlexmlPackage.ELEMENT__ATTRIBUTES:
+				return attributes != null && !attributes.isEmpty();
+			case FlexmlPackage.ELEMENT__CHILDREN:
+				return children != null && !children.isEmpty();
 			case FlexmlPackage.ELEMENT__HAS_TEXT:
 				return HAS_TEXT_EDEFAULT == null ? hasText != null : !HAS_TEXT_EDEFAULT.equals(hasText);
 		}
@@ -397,8 +397,8 @@ public class ElementImpl extends NamedObjectImpl implements Element {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (aliasName: ");
-		result.append(aliasName);
+		result.append(" (aliasNames: ");
+		result.append(aliasNames);
 		result.append(", hasText: ");
 		result.append(hasText);
 		result.append(')');
