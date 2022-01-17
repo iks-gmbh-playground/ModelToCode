@@ -6,6 +6,16 @@ import javax.xml.transform.stream.StreamSource;
 
 import flexml.elements.FileElement;
 
+/**
+ * Top level class for the FlexmlParser
+ * <pre>
+ * FlexmlParser fp = new FlexmlParser(...);
+ * if (fp.isValid()) {
+ *   FileElement fe = fp.parse()
+ * }
+ * </pre>
+ *
+ */
 public class FlexmlParser {
 	private XMLEventReader evRd;
 	private boolean valid = false;
