@@ -8,6 +8,14 @@
 	<property name="src.deploy" value="${project.deploy}/src"/>
 	<property name="src-gen.deploy" value="${project.deploy}/src-gen"/>
 	
+	<target name="clean">
+	  <echo>=== CLEAN ===</echo>
+	  <delete failonerror="false">
+	    <fileset dir="${src-gen.parser.current}" includes="**/*.java"/>
+	  	<fileset dir="${src-gen.parser.previous}" includes="**/*.java"/>
+	  </delete>
+	</target>	
+	
 	<target name="main">
 		<!-- set timestamp -->
 		<tstamp>
