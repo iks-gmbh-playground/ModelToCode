@@ -149,7 +149,6 @@ public class TcAttributeImpl extends EObjectImpl implements TcAttribute {
 		result.setValue(String.format("Value for %s %d", getName(), inParentId));
 		return result;
 	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

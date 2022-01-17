@@ -37,7 +37,7 @@ operation Element getElementClassName() : String {
 }
 
 operation Element hasChildren() : Boolean {
-	return self.child.isDefined and self.child.size() > 0;
+	return self.children.isDefined and self.children.size() > 0;
 }
 
 operation Element hasText() : Boolean {

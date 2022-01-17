@@ -7,12 +7,12 @@
 */
 operation TestCaseModel!TcElement toXml() : String {
 	var result : String = "<" + self.name;
-	for (curAttribute: TestCaseModel!TcAttribute in self.attribute) {
+	for (curAttribute: TestCaseModel!TcAttribute in self.attributes) {
 		result = result + curAttribute.toXml();
 	}
 	result = result + ">\n";
 	result = result + self.text;
-	for (curChild : TestCaseModel!TcElement in self.child) {
+	for (curChild : TestCaseModel!TcElement in self.children) {
 		result = result + curChild.toXml();
 	}	
 	result = result + "</" + self.name +">\n";
@@ -84,7 +84,7 @@ operation TestCaseModel!TcElement genTestmethodBody() : String {
 operation TestCaseModel!TcElement genTestAllAttributes() : String {
 	var result : String = new String();
 	
-	for (curAttr: TestCaseModel!TcAttribute in self.attribute) {
+	for (curAttr: TestCaseModel!TcAttribute in self.attributes) {
 		var expected : String = "\"" + curAttr.value + "\"";
 		var actual : String = "inChild." + curAttr.genGetterCall();
 		result = result + "\tAssertions.assertEquals(" + expected + ", " + actual + ");\n";
@@ -106,7 +106,7 @@ operation TestCaseModel!TcElement genTestAllChildren() : String {
 	/*
 	Call the test on each child
 	*/
-	for (curChild: TestCaseModel!TcElement in self.child) {
+	for (curChild: TestCaseModel!TcElement in self.children) {
 		var index : Integer = childIndexMap.getChildIndex(curChild.name);
 		var getter : String = "inChild." + curChild.genChildGetterCall(index);
 				
@@ -133,7 +133,7 @@ operation TestCaseModel!TcElement genTestTextContent() : String {
 */
 operation TestCaseModel!TcElement genTestmethodBodyForAllChildren() : String {
 	var result: String = new String();
-	for (curChild: TestCaseModel!TcElement in self.child) {
+	for (curChild: TestCaseModel!TcElement in self.children) {
 		result = result + curChild.genTestmethodBody();
 	}
 	return result;

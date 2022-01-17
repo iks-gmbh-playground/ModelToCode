@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link flexml.impl.DefinitionImpl#getRoot <em>Root</em>}</li>
- *   <li>{@link flexml.impl.DefinitionImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link flexml.impl.DefinitionImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,14 +48,14 @@ public class DefinitionImpl extends EObjectImpl implements Definition {
 	protected Element root;
 
 	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElement()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> element;
+	protected EList<Element> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,11 +127,11 @@ public class DefinitionImpl extends EObjectImpl implements Definition {
 	 * @generated
 	 */
 	@Override
-	public EList<Element> getElement() {
-		if (element == null) {
-			element = new EObjectContainmentEList<Element>(Element.class, this, FlexmlPackage.DEFINITION__ELEMENT);
+	public EList<Element> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentEList<Element>(Element.class, this, FlexmlPackage.DEFINITION__ELEMENTS);
 		}
-		return element;
+		return elements;
 	}
 
 	/**
@@ -144,8 +144,8 @@ public class DefinitionImpl extends EObjectImpl implements Definition {
 		switch (featureID) {
 			case FlexmlPackage.DEFINITION__ROOT:
 				return basicSetRoot(null, msgs);
-			case FlexmlPackage.DEFINITION__ELEMENT:
-				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+			case FlexmlPackage.DEFINITION__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -160,8 +160,8 @@ public class DefinitionImpl extends EObjectImpl implements Definition {
 		switch (featureID) {
 			case FlexmlPackage.DEFINITION__ROOT:
 				return getRoot();
-			case FlexmlPackage.DEFINITION__ELEMENT:
-				return getElement();
+			case FlexmlPackage.DEFINITION__ELEMENTS:
+				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,9 +178,9 @@ public class DefinitionImpl extends EObjectImpl implements Definition {
 			case FlexmlPackage.DEFINITION__ROOT:
 				setRoot((Element)newValue);
 				return;
-			case FlexmlPackage.DEFINITION__ELEMENT:
-				getElement().clear();
-				getElement().addAll((Collection<? extends Element>)newValue);
+			case FlexmlPackage.DEFINITION__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends Element>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -197,8 +197,8 @@ public class DefinitionImpl extends EObjectImpl implements Definition {
 			case FlexmlPackage.DEFINITION__ROOT:
 				setRoot((Element)null);
 				return;
-			case FlexmlPackage.DEFINITION__ELEMENT:
-				getElement().clear();
+			case FlexmlPackage.DEFINITION__ELEMENTS:
+				getElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -214,8 +214,8 @@ public class DefinitionImpl extends EObjectImpl implements Definition {
 		switch (featureID) {
 			case FlexmlPackage.DEFINITION__ROOT:
 				return root != null;
-			case FlexmlPackage.DEFINITION__ELEMENT:
-				return element != null && !element.isEmpty();
+			case FlexmlPackage.DEFINITION__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

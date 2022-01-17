@@ -15,7 +15,7 @@ import java.util.ArrayList;
 [% if (element.hasChildren()) { %]
  * It has the following children
  * <ul>
-[% for (child in element.child) { var childElement : Element = child.getChildElement(); %]
+[% for (child in element.children) { var childElement : Element = child.getChildElement(); %]
  * <li> {@link [%= childElement.getElementClassName() %]
 [% } %]} 
  * </ul>
@@ -27,11 +27,11 @@ public class [%= element.getElementClassName() %] {
 	[% if(element.hasText()) { %]
 	private String text = "";
 	[% } %]
-	[% for (attribute in element.attribute) { %]
+	[% for (attribute in element.attributes) { %]
 	private String [%= attribute.name %];
 	[% } %]
 
-	[% for (child in element.child) { %]
+	[% for (child in element.children) { %]
 	[% var childElement : Element = child.getChildElement(); %]
 	private List <[%= childElement.getElementClassName() %]> [%= childElement.name %] = new ArrayList<>();
 	[% } %]	
@@ -49,13 +49,13 @@ public class [%= element.getElementClassName() %] {
 	}
 	
 	[% } %]
-	[% for (attribute in element.attribute) { %]
+	[% for (attribute in element.attributes) { %]
 	public void [%= attribute.getSetterName() %](String [%= attribute.getInputParameterName() %]) {
 		[%= attribute.getInputAssignment() %]
 	}
 
 	[% } %]
-	[% for (child in element.child) { %]
+	[% for (child in element.children) { %]
 	[% var childElement : Element = child.getChildElement(); %]
 	public void add[%= childElement.getMethodName() %]([%= childElement.getElementClassName() %] [%= childElement.getInputParameterName() %]) {
 		[%= childElement.name %].add([%= childElement.getInputParameterName() %]);
@@ -75,13 +75,13 @@ public class [%= element.getElementClassName() %] {
 	}
 	
 	[% } %]
-	[% for (attribute in element.attribute) { %]
+	[% for (attribute in element.attributes) { %]
 	public String [%= attribute.getGetterName() %]() {
 		return [%= attribute.name %];
 	}
 	[% } %]
 
-	[% for (child in element.child) { %]
+	[% for (child in element.children) { %]
 	[% var childElement : Element = child.getChildElement(); %]
 	/**
 	 * @return [%= childElement.desc %]
@@ -98,7 +98,7 @@ public class [%= element.getElementClassName() %] {
 	@Override
 	public String toString() {
 		String result = "<[%= element.getElementName() %]";
-	[% for (attribute in element.attribute) { %]
+	[% for (attribute in element.attributes) { %]
 		if (null != [%= attribute.getGetterName() %]()) {
 			result = result + " [%= attribute.name %] = \"" + [%= attribute.getGetterName() %]() +"\"";
 			} 
@@ -107,7 +107,7 @@ public class [%= element.getElementClassName() %] {
 	[% if(element.hasText()) { %]
 		result = result + text;
 	[% } %]
-	[% for (child in element.child) { %]
+	[% for (child in element.children) { %]
 	[% var childElement : Element = child.getChildElement(); %]
 		for ([%= childElement.getElementClassName() %] cur: [%= childElement.name %]) {
 			result = result + cur.toString();

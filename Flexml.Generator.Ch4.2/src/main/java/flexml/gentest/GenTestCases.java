@@ -37,7 +37,7 @@ public class GenTestCases {
         	Testcase tc = tcFactory.createTestcase();
         	tc.setName(tcName);
         	tc.setRoot(curRoot);
-        	lot.getTestcase().add(tc);
+        	lot.getTestcases().add(tc);
         }
 
         System.out.println(String.format("Count %d",cnt-1));

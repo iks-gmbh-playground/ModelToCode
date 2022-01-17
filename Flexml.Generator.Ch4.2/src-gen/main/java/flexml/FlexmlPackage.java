@@ -160,31 +160,31 @@ public interface FlexmlPackage extends EPackage {
 	int ELEMENT__DESC = NAMED_OBJECT__DESC;
 
 	/**
-	 * The feature id for the '<em><b>Alias Name</b></em>' attribute list.
+	 * The feature id for the '<em><b>Alias Names</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__ALIAS_NAME = NAMED_OBJECT_FEATURE_COUNT + 0;
+	int ELEMENT__ALIAS_NAMES = NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__ATTRIBUTE = NAMED_OBJECT_FEATURE_COUNT + 1;
+	int ELEMENT__ATTRIBUTES = NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__CHILD = NAMED_OBJECT_FEATURE_COUNT + 2;
+	int ELEMENT__CHILDREN = NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Has Text</b></em>' attribute.
@@ -261,13 +261,13 @@ public interface FlexmlPackage extends EPackage {
 	int DEFINITION__ROOT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINITION__ELEMENT = 1;
+	int DEFINITION__ELEMENTS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Definition</em>' class.
@@ -352,37 +352,37 @@ public interface FlexmlPackage extends EPackage {
 	EClass getElement();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link flexml.Element#getAliasName <em>Alias Name</em>}'.
+	 * Returns the meta object for the attribute list '{@link flexml.Element#getAliasNames <em>Alias Names</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Alias Name</em>'.
-	 * @see flexml.Element#getAliasName()
+	 * @return the meta object for the attribute list '<em>Alias Names</em>'.
+	 * @see flexml.Element#getAliasNames()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EAttribute getElement_AliasName();
+	EAttribute getElement_AliasNames();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link flexml.Element#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the containment reference list '{@link flexml.Element#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Attribute</em>'.
-	 * @see flexml.Element#getAttribute()
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
+	 * @see flexml.Element#getAttributes()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EReference getElement_Attribute();
+	EReference getElement_Attributes();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link flexml.Element#getChild <em>Child</em>}'.
+	 * Returns the meta object for the containment reference list '{@link flexml.Element#getChildren <em>Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Child</em>'.
-	 * @see flexml.Element#getChild()
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see flexml.Element#getChildren()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EReference getElement_Child();
+	EReference getElement_Children();
 
 	/**
 	 * Returns the meta object for the attribute '{@link flexml.Element#getHasText <em>Has Text</em>}'.
@@ -449,15 +449,15 @@ public interface FlexmlPackage extends EPackage {
 	EReference getDefinition_Root();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link flexml.Definition#getElement <em>Element</em>}'.
+	 * Returns the meta object for the containment reference list '{@link flexml.Definition#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Element</em>'.
-	 * @see flexml.Definition#getElement()
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see flexml.Definition#getElements()
 	 * @see #getDefinition()
 	 * @generated
 	 */
-	EReference getDefinition_Element();
+	EReference getDefinition_Elements();
 
 	/**
 	 * Returns the meta object for enum '{@link flexml.Multiplicity <em>Multiplicity</em>}'.
@@ -549,28 +549,28 @@ public interface FlexmlPackage extends EPackage {
 		EClass ELEMENT = eINSTANCE.getElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Alias Name</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Alias Names</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ELEMENT__ALIAS_NAME = eINSTANCE.getElement_AliasName();
+		EAttribute ELEMENT__ALIAS_NAMES = eINSTANCE.getElement_AliasNames();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT__ATTRIBUTE = eINSTANCE.getElement_Attribute();
+		EReference ELEMENT__ATTRIBUTES = eINSTANCE.getElement_Attributes();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT__CHILD = eINSTANCE.getElement_Child();
+		EReference ELEMENT__CHILDREN = eINSTANCE.getElement_Children();
 
 		/**
 		 * The meta object literal for the '<em><b>Has Text</b></em>' attribute feature.
@@ -625,12 +625,12 @@ public interface FlexmlPackage extends EPackage {
 		EReference DEFINITION__ROOT = eINSTANCE.getDefinition_Root();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DEFINITION__ELEMENT = eINSTANCE.getDefinition_Element();
+		EReference DEFINITION__ELEMENTS = eINSTANCE.getDefinition_Elements();
 
 		/**
 		 * The meta object literal for the '{@link flexml.Multiplicity <em>Multiplicity</em>}' enum.

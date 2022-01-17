@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link testcases.ListOfTestcase#getTestcase <em>Testcase</em>}</li>
+ *   <li>{@link testcases.ListOfTestcase#getTestcases <em>Testcases</em>}</li>
  * </ul>
  *
  * @see testcases.TestcasesPackage#getListOfTestcase()
@@ -24,15 +24,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ListOfTestcase extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Testcase</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Testcases</b></em>' containment reference list.
 	 * The list contents are of type {@link testcases.Testcase}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Testcase</em>' containment reference list.
-	 * @see testcases.TestcasesPackage#getListOfTestcase_Testcase()
+	 * @return the value of the '<em>Testcases</em>' containment reference list.
+	 * @see testcases.TestcasesPackage#getListOfTestcase_Testcases()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Testcase> getTestcase();
+	EList<Testcase> getTestcases();
 
 } // ListOfTestcase

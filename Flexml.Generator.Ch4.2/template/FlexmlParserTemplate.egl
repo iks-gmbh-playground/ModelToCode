@@ -50,7 +50,7 @@ public class [%= element.getParserClassName() %] {
 
 		StartElement start = inFileStartEvent.asStartElement();
 
-		[% for (attribute in element.attribute) { %]
+		[% for (attribute in element.attributes) { %]
 		Attribute [%= attribute.name %] = start.getAttributeByName(new QName("[%= attribute.name %]"));
 		if (null != [%= attribute.name %]) {
 			result.[%= attribute.getSetterName() %]([%= attribute.name %].getValue());
@@ -79,10 +79,10 @@ public class [%= element.getParserClassName() %] {
 	private void handleChildStartElement(XMLEventReader inEventReader, XMLEvent inEvent) {
 		StartElement start = inEvent.asStartElement();
 		switch (start.getName().getLocalPart()) {
-		[% for (child in element.child) { %]
+		[% for (child in element.children) { %]
 		[% var childElement : Element = child.getChildElement(); %]
 		case "[%= childElement.name %]":
-		[% for (curAlias in childElement.aliasName) { %]
+		[% for (curAlias in childElement.aliasNames) { %]
 		case "[%= curAlias %]":
 		[% } %]		
 			result.add[%= childElement.getMethodName() %](new [%= childElement.getParserClassName() %]().parse[%= childElement.getElementClassName() %](inEventReader, inEvent));
@@ -102,7 +102,7 @@ public class [%= element.getParserClassName() %] {
 		EndElement end = inEvent.asEndElement();
 		switch (end.getName().getLocalPart()) {
 		case "[%= element.name %]":
-		[% for (curAlias in element.aliasName) { %]
+		[% for (curAlias in element.aliasNames) { %]
 		case "[%= curAlias %]":
 		[% } %]		
 			return true;

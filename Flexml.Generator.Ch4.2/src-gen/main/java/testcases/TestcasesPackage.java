@@ -113,22 +113,22 @@ public interface TestcasesPackage extends EPackage {
 	int TC_ELEMENT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TC_ELEMENT__ATTRIBUTE = 1;
+	int TC_ELEMENT__ATTRIBUTES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Child</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TC_ELEMENT__CHILD = 2;
+	int TC_ELEMENT__CHILDREN = 2;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -205,13 +205,13 @@ public interface TestcasesPackage extends EPackage {
 	int LIST_OF_TESTCASE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Testcase</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Testcases</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_OF_TESTCASE__TESTCASE = 0;
+	int LIST_OF_TESTCASE__TESTCASES = 0;
 
 	/**
 	 * The number of structural features of the '<em>List Of Testcase</em>' class.
@@ -297,26 +297,26 @@ public interface TestcasesPackage extends EPackage {
 	EAttribute getTcElement_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link testcases.TcElement#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the containment reference list '{@link testcases.TcElement#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Attribute</em>'.
-	 * @see testcases.TcElement#getAttribute()
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
+	 * @see testcases.TcElement#getAttributes()
 	 * @see #getTcElement()
 	 * @generated
 	 */
-	EReference getTcElement_Attribute();
+	EReference getTcElement_Attributes();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link testcases.TcElement#getChild <em>Child</em>}'.
+	 * Returns the meta object for the containment reference list '{@link testcases.TcElement#getChildren <em>Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Child</em>'.
-	 * @see testcases.TcElement#getChild()
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see testcases.TcElement#getChildren()
 	 * @see #getTcElement()
 	 * @generated
 	 */
-	EReference getTcElement_Child();
+	EReference getTcElement_Children();
 
 	/**
 	 * Returns the meta object for the attribute '{@link testcases.TcElement#getText <em>Text</em>}'.
@@ -383,15 +383,15 @@ public interface TestcasesPackage extends EPackage {
 	EClass getListOfTestcase();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link testcases.ListOfTestcase#getTestcase <em>Testcase</em>}'.
+	 * Returns the meta object for the containment reference list '{@link testcases.ListOfTestcase#getTestcases <em>Testcases</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Testcase</em>'.
-	 * @see testcases.ListOfTestcase#getTestcase()
+	 * @return the meta object for the containment reference list '<em>Testcases</em>'.
+	 * @see testcases.ListOfTestcase#getTestcases()
 	 * @see #getListOfTestcase()
 	 * @generated
 	 */
-	EReference getListOfTestcase_Testcase();
+	EReference getListOfTestcase_Testcases();
 
 	/**
 	 * Returns the meta object for data type '{@link testcases.collections.ListOfSubtree <em>List Of Subtree</em>}'.
@@ -482,20 +482,20 @@ public interface TestcasesPackage extends EPackage {
 		EAttribute TC_ELEMENT__NAME = eINSTANCE.getTcElement_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TC_ELEMENT__ATTRIBUTE = eINSTANCE.getTcElement_Attribute();
+		EReference TC_ELEMENT__ATTRIBUTES = eINSTANCE.getTcElement_Attributes();
 
 		/**
-		 * The meta object literal for the '<em><b>Child</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TC_ELEMENT__CHILD = eINSTANCE.getTcElement_Child();
+		EReference TC_ELEMENT__CHILDREN = eINSTANCE.getTcElement_Children();
 
 		/**
 		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
@@ -550,12 +550,12 @@ public interface TestcasesPackage extends EPackage {
 		EClass LIST_OF_TESTCASE = eINSTANCE.getListOfTestcase();
 
 		/**
-		 * The meta object literal for the '<em><b>Testcase</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Testcases</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LIST_OF_TESTCASE__TESTCASE = eINSTANCE.getListOfTestcase_Testcase();
+		EReference LIST_OF_TESTCASE__TESTCASES = eINSTANCE.getListOfTestcase_Testcases();
 
 		/**
 		 * The meta object literal for the '<em>List Of Subtree</em>' data type.

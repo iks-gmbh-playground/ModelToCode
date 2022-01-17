@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link flexml.Definition#getRoot <em>Root</em>}</li>
- *   <li>{@link flexml.Definition#getElement <em>Element</em>}</li>
+ *   <li>{@link flexml.Definition#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see flexml.FlexmlPackage#getDefinition()
@@ -47,15 +47,15 @@ public interface Definition extends EObject {
 	void setRoot(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>Element</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link flexml.Element}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' containment reference list.
-	 * @see flexml.FlexmlPackage#getDefinition_Element()
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see flexml.FlexmlPackage#getDefinition_Elements()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Element> getElement();
+	EList<Element> getElements();
 
 } // Definition

@@ -35,8 +35,8 @@ import testcases.collections.ListOfSubtree;
  * </p>
  * <ul>
  *   <li>{@link testcases.impl.TcElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link testcases.impl.TcElementImpl#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link testcases.impl.TcElementImpl#getChild <em>Child</em>}</li>
+ *   <li>{@link testcases.impl.TcElementImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link testcases.impl.TcElementImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link testcases.impl.TcElementImpl#getText <em>Text</em>}</li>
  *   <li>{@link testcases.impl.TcElementImpl#getObjectId <em>Object Id</em>}</li>
  * </ul>
@@ -65,24 +65,24 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
+	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAttribute()
+	 * @see #getAttributes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TcAttribute> attribute;
+	protected EList<TcAttribute> attributes;
 
 	/**
-	 * The cached value of the '{@link #getChild() <em>Child</em>}' containment reference list.
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChild()
+	 * @see #getChildren()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TcElement> child;
+	protected EList<TcElement> children;
 
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -172,11 +172,11 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 	 * @generated
 	 */
 	@Override
-	public EList<TcAttribute> getAttribute() {
-		if (attribute == null) {
-			attribute = new EObjectContainmentEList<TcAttribute>(TcAttribute.class, this, TestcasesPackage.TC_ELEMENT__ATTRIBUTE);
+	public EList<TcAttribute> getAttributes() {
+		if (attributes == null) {
+			attributes = new EObjectContainmentEList<TcAttribute>(TcAttribute.class, this, TestcasesPackage.TC_ELEMENT__ATTRIBUTES);
 		}
-		return attribute;
+		return attributes;
 	}
 
 	/**
@@ -185,11 +185,11 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 	 * @generated
 	 */
 	@Override
-	public EList<TcElement> getChild() {
-		if (child == null) {
-			child = new EObjectContainmentEList<TcElement>(TcElement.class, this, TestcasesPackage.TC_ELEMENT__CHILD);
+	public EList<TcElement> getChildren() {
+		if (children == null) {
+			children = new EObjectContainmentEList<TcElement>(TcElement.class, this, TestcasesPackage.TC_ELEMENT__CHILDREN);
 		}
-		return child;
+		return children;
 	}
 
 	/**
@@ -247,7 +247,7 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 	@Override
 	public void attachAsChildren(ListOfSubtree inListOfSubtrees) {
 		for (TcElement curSubtree : inListOfSubtrees.getList()) {
-			getChild().add(curSubtree.deepCopy());
+			getChildren().add(curSubtree.deepCopy());
 		}
 	}
 
@@ -266,16 +266,15 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 		if ((null != getText()) && ! getText().isEmpty()) {
 			result.setText(String.format("Here is some text for element %s %d", result.getName(), result.getObjectId()));	
 		} 
-		for (TcAttribute curAttribute : getAttribute()) {
-			result.getAttribute().add(curAttribute.deepCopy(result.getObjectId()));
+		for (TcAttribute curAttribute : getAttributes()) {
+			result.getAttributes().add(curAttribute.deepCopy(result.getObjectId()));
 		}
-		for (TcElement curChild : getChild()) {
-			result.getChild().add(curChild.deepCopy());
+		for (TcElement curChild : getChildren()) {
+			result.getChildren().add(curChild.deepCopy());
 			}
 
 		return result;
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,10 +283,10 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TestcasesPackage.TC_ELEMENT__ATTRIBUTE:
-				return ((InternalEList<?>)getAttribute()).basicRemove(otherEnd, msgs);
-			case TestcasesPackage.TC_ELEMENT__CHILD:
-				return ((InternalEList<?>)getChild()).basicRemove(otherEnd, msgs);
+			case TestcasesPackage.TC_ELEMENT__ATTRIBUTES:
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+			case TestcasesPackage.TC_ELEMENT__CHILDREN:
+				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -302,10 +301,10 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 		switch (featureID) {
 			case TestcasesPackage.TC_ELEMENT__NAME:
 				return getName();
-			case TestcasesPackage.TC_ELEMENT__ATTRIBUTE:
-				return getAttribute();
-			case TestcasesPackage.TC_ELEMENT__CHILD:
-				return getChild();
+			case TestcasesPackage.TC_ELEMENT__ATTRIBUTES:
+				return getAttributes();
+			case TestcasesPackage.TC_ELEMENT__CHILDREN:
+				return getChildren();
 			case TestcasesPackage.TC_ELEMENT__TEXT:
 				return getText();
 			case TestcasesPackage.TC_ELEMENT__OBJECT_ID:
@@ -326,13 +325,13 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 			case TestcasesPackage.TC_ELEMENT__NAME:
 				setName((String)newValue);
 				return;
-			case TestcasesPackage.TC_ELEMENT__ATTRIBUTE:
-				getAttribute().clear();
-				getAttribute().addAll((Collection<? extends TcAttribute>)newValue);
+			case TestcasesPackage.TC_ELEMENT__ATTRIBUTES:
+				getAttributes().clear();
+				getAttributes().addAll((Collection<? extends TcAttribute>)newValue);
 				return;
-			case TestcasesPackage.TC_ELEMENT__CHILD:
-				getChild().clear();
-				getChild().addAll((Collection<? extends TcElement>)newValue);
+			case TestcasesPackage.TC_ELEMENT__CHILDREN:
+				getChildren().clear();
+				getChildren().addAll((Collection<? extends TcElement>)newValue);
 				return;
 			case TestcasesPackage.TC_ELEMENT__TEXT:
 				setText((String)newValue);
@@ -355,11 +354,11 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 			case TestcasesPackage.TC_ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case TestcasesPackage.TC_ELEMENT__ATTRIBUTE:
-				getAttribute().clear();
+			case TestcasesPackage.TC_ELEMENT__ATTRIBUTES:
+				getAttributes().clear();
 				return;
-			case TestcasesPackage.TC_ELEMENT__CHILD:
-				getChild().clear();
+			case TestcasesPackage.TC_ELEMENT__CHILDREN:
+				getChildren().clear();
 				return;
 			case TestcasesPackage.TC_ELEMENT__TEXT:
 				setText(TEXT_EDEFAULT);
@@ -381,10 +380,10 @@ public class TcElementImpl extends EObjectImpl implements TcElement {
 		switch (featureID) {
 			case TestcasesPackage.TC_ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case TestcasesPackage.TC_ELEMENT__ATTRIBUTE:
-				return attribute != null && !attribute.isEmpty();
-			case TestcasesPackage.TC_ELEMENT__CHILD:
-				return child != null && !child.isEmpty();
+			case TestcasesPackage.TC_ELEMENT__ATTRIBUTES:
+				return attributes != null && !attributes.isEmpty();
+			case TestcasesPackage.TC_ELEMENT__CHILDREN:
+				return children != null && !children.isEmpty();
 			case TestcasesPackage.TC_ELEMENT__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 			case TestcasesPackage.TC_ELEMENT__OBJECT_ID:

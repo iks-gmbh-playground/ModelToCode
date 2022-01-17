@@ -18,8 +18,8 @@ import testcases.collections.ListOfSubtree;
  * </p>
  * <ul>
  *   <li>{@link testcases.TcElement#getName <em>Name</em>}</li>
- *   <li>{@link testcases.TcElement#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link testcases.TcElement#getChild <em>Child</em>}</li>
+ *   <li>{@link testcases.TcElement#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link testcases.TcElement#getChildren <em>Children</em>}</li>
  *   <li>{@link testcases.TcElement#getText <em>Text</em>}</li>
  *   <li>{@link testcases.TcElement#getObjectId <em>Object Id</em>}</li>
  * </ul>
@@ -52,28 +52,28 @@ public interface TcElement extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Attribute</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
 	 * The list contents are of type {@link testcases.TcAttribute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute</em>' containment reference list.
-	 * @see testcases.TestcasesPackage#getTcElement_Attribute()
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
+	 * @see testcases.TestcasesPackage#getTcElement_Attributes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TcAttribute> getAttribute();
+	EList<TcAttribute> getAttributes();
 
 	/**
-	 * Returns the value of the '<em><b>Child</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
 	 * The list contents are of type {@link testcases.TcElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child</em>' containment reference list.
-	 * @see testcases.TestcasesPackage#getTcElement_Child()
+	 * @return the value of the '<em>Children</em>' containment reference list.
+	 * @see testcases.TestcasesPackage#getTcElement_Children()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TcElement> getChild();
+	EList<TcElement> getChildren();
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.

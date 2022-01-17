@@ -28,21 +28,21 @@ import testcases.TestcasesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link testcases.impl.ListOfTestcaseImpl#getTestcase <em>Testcase</em>}</li>
+ *   <li>{@link testcases.impl.ListOfTestcaseImpl#getTestcases <em>Testcases</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ListOfTestcaseImpl extends EObjectImpl implements ListOfTestcase {
 	/**
-	 * The cached value of the '{@link #getTestcase() <em>Testcase</em>}' containment reference list.
+	 * The cached value of the '{@link #getTestcases() <em>Testcases</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTestcase()
+	 * @see #getTestcases()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Testcase> testcase;
+	protected EList<Testcase> testcases;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,11 +69,11 @@ public class ListOfTestcaseImpl extends EObjectImpl implements ListOfTestcase {
 	 * @generated
 	 */
 	@Override
-	public EList<Testcase> getTestcase() {
-		if (testcase == null) {
-			testcase = new EObjectContainmentEList<Testcase>(Testcase.class, this, TestcasesPackage.LIST_OF_TESTCASE__TESTCASE);
+	public EList<Testcase> getTestcases() {
+		if (testcases == null) {
+			testcases = new EObjectContainmentEList<Testcase>(Testcase.class, this, TestcasesPackage.LIST_OF_TESTCASE__TESTCASES);
 		}
-		return testcase;
+		return testcases;
 	}
 
 	/**
@@ -84,8 +84,8 @@ public class ListOfTestcaseImpl extends EObjectImpl implements ListOfTestcase {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASE:
-				return ((InternalEList<?>)getTestcase()).basicRemove(otherEnd, msgs);
+			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASES:
+				return ((InternalEList<?>)getTestcases()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,8 +98,8 @@ public class ListOfTestcaseImpl extends EObjectImpl implements ListOfTestcase {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASE:
-				return getTestcase();
+			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASES:
+				return getTestcases();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,9 +113,9 @@ public class ListOfTestcaseImpl extends EObjectImpl implements ListOfTestcase {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASE:
-				getTestcase().clear();
-				getTestcase().addAll((Collection<? extends Testcase>)newValue);
+			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASES:
+				getTestcases().clear();
+				getTestcases().addAll((Collection<? extends Testcase>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,8 +129,8 @@ public class ListOfTestcaseImpl extends EObjectImpl implements ListOfTestcase {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASE:
-				getTestcase().clear();
+			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASES:
+				getTestcases().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -144,8 +144,8 @@ public class ListOfTestcaseImpl extends EObjectImpl implements ListOfTestcase {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASE:
-				return testcase != null && !testcase.isEmpty();
+			case TestcasesPackage.LIST_OF_TESTCASE__TESTCASES:
+				return testcases != null && !testcases.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
