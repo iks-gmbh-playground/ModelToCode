@@ -3,11 +3,21 @@
 	<property name="src-gen.parser.previous" value="export/previous/src-gen"/>
 	<property name="src-gen.parser.current" value="export/current/src-gen"/>
 	<property name="src.parser.current" value="export/current/src"/>
+	<property name="testcases" value="export/current/src"/>
 	
 	<property name="project.deploy" value="../Flexml.Parser.Ch4.2"/>
 	
 	<property name="src.deploy" value="${project.deploy}/src"/>
 	<property name="src-gen.deploy" value="${project.deploy}/src-gen"/>
+
+	<target name="clean">
+	  <echo>=== CLEAN ===</echo>
+	  <delete failonerror="false">
+	    <fileset dir="${src-gen.parser.current}" includes="**/*.java"/>
+	    <fileset dir="${src-gen.parser.current}" includes="**/*.xml"/>
+	  	<fileset dir="${src-gen.parser.previous}" includes="**/*.java"/>
+	  </delete>
+	</target>	
 
 	<target name="main">
 	</target>
