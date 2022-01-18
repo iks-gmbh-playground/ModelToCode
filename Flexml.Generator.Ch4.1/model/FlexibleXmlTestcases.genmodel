@@ -16,8 +16,8 @@
     </genClasses>
     <genClasses ecoreClass="FlexibleXmlTestcases.ecore#//TcElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//TcElement/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//TcElement/attribute"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//TcElement/child"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//TcElement/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//TcElement/children"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//TcElement/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//TcElement/objectId"/>
       <genOperations ecoreOperation="FlexibleXmlTestcases.ecore#//TcElement/attachAsChildren">
@@ -30,7 +30,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FlexibleXmlTestcases.ecore#//Testcase/name"/>
     </genClasses>
     <genClasses ecoreClass="FlexibleXmlTestcases.ecore#//ListOfTestcase">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//ListOfTestcase/testcase"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FlexibleXmlTestcases.ecore#//ListOfTestcase/testcases"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
